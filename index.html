@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Legal & DMCA Policy – globalstats.xyz</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Legal, DMCA & ToS – globalstats.xyz</title>
   <style>
     :root {
       --primary: #1e1e2f;
@@ -11,615 +11,231 @@
       --text: #e8e8e8;
       --bg: #12121c;
       --danger: #ff4e4e;
-      --success: #4CAF50;
-      --warning: #ffae42;
-      --transition: 0.3s ease-in-out;
+      --light-accent: #9ecaff;
     }
+
     body {
       margin: 0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      font-family: 'Segoe UI', sans-serif;
       background-color: var(--bg);
       color: var(--text);
       line-height: 1.7;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
     }
+
     header {
       background: var(--primary);
       padding: 2rem 1rem;
       text-align: center;
       border-bottom: 2px solid var(--accent);
-      user-select: none;
     }
+
     header h1 {
       margin: 0;
-      font-size: 2.4rem;
+      font-size: 2.5rem;
       color: var(--accent);
-      letter-spacing: 1px;
     }
+
     header p {
-      margin-top: 0.4rem;
-      font-size: 1rem;
-      color: #a0b9ff;
-      font-weight: 600;
-    }
-    main {
-      max-width: 900px;
-      margin: 2rem auto;
-      padding: 1rem 1.2rem;
-      flex-grow: 1;
-    }
-    section {
-      margin-bottom: 3rem;
-      opacity: 0;
-      transform: translateY(20px);
-      transition: opacity 0.8s var(--transition), transform 0.8s var(--transition);
-    }
-    section.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-    section h2 {
-      color: var(--accent);
-      border-left: 5px solid var(--accent);
-      padding-left: 0.7rem;
-      font-size: 1.7rem;
-      margin-bottom: 1rem;
-      user-select: text;
-    }
-    p, ul {
-      user-select: text;
-      font-size: 1rem;
-    }
-    ul {
-      padding-left: 1.3rem;
       margin-top: 0.5rem;
-      list-style: disc;
+      font-size: 1.1rem;
+      color: var(--light-accent);
     }
-    ul li {
-      margin-bottom: 0.5rem;
+
+    nav {
+      margin-top: 1rem;
     }
-    code {
-      background-color: #222;
-      padding: 0.25rem 0.5rem;
-      border-radius: 4px;
-      font-family: 'Courier New', Courier, monospace;
+
+    nav a {
+      color: var(--text);
+      margin: 0 10px;
+      font-weight: 500;
+      text-decoration: none;
       font-size: 0.95rem;
     }
+
+    nav a:hover {
+      color: var(--accent);
+    }
+
+    .button {
+      display: inline-block;
+      margin-top: 1.5rem;
+      padding: 0.6rem 1.2rem;
+      font-size: 1rem;
+      background-color: var(--accent);
+      color: var(--primary);
+      border: none;
+      border-radius: 4px;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .button:hover {
+      background-color: #76baff;
+    }
+
+    main {
+      max-width: 960px;
+      margin: 2rem auto;
+      padding: 1rem;
+    }
+
+    section {
+      margin-bottom: 2.5rem;
+      background-color: #1a1a28;
+      border-left: 4px solid var(--accent);
+      padding: 1.5rem;
+      border-radius: 8px;
+    }
+
+    section h2 {
+      color: var(--accent);
+      font-size: 1.6rem;
+      margin-top: 0;
+    }
+
+    section p, li {
+      font-size: 1rem;
+    }
+
     footer {
       text-align: center;
-      padding: 1.8rem 1rem;
+      padding: 2rem 1rem;
       font-size: 0.9rem;
       border-top: 1px solid #333;
-      color: #888;
-      user-select: none;
+      color: #aaa;
     }
+
     a {
       color: var(--accent);
       text-decoration: none;
-      transition: color 0.25s;
     }
-    a:hover,
-    a:focus {
+
+    a:hover {
       text-decoration: underline;
-      color: #82b1ff;
-      outline: none;
     }
-    form {
-      max-width: 600px;
-      margin: 0 auto;
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
+
+    ul {
+      padding-left: 1.5rem;
     }
-    input[type="text"],
-    input[type="email"],
-    textarea {
-      padding: 0.8rem 1rem;
+
+    .highlight {
+      background-color: #2a2a40;
+      padding: 1rem;
+      border-left: 4px solid var(--danger);
       border-radius: 6px;
-      border: none;
-      font-size: 1rem;
-      resize: vertical;
-      background-color: #222234;
-      color: var(--text);
-      box-shadow: inset 0 0 6px #00000080;
-      transition: box-shadow 0.3s;
+      margin-top: 1rem;
+      color: #ffcccc;
     }
-    input[type="text"]:focus,
-    input[type="email"]:focus,
-    textarea:focus {
-      outline: none;
-      box-shadow: 0 0 8px var(--accent);
+
+    .bot-list {
+      padding-left: 1rem;
+      list-style: square;
     }
-    input[type="submit"] {
+
+    .tag {
+      display: inline-block;
+      padding: 0.3rem 0.6rem;
+      font-size: 0.85rem;
       background-color: var(--accent);
-      color: var(--text);
-      border: none;
-      border-radius: 6px;
-      padding: 0.9rem 1.5rem;
-      font-weight: 700;
-      cursor: pointer;
-      transition: background-color 0.3s;
-      user-select: none;
-    }
-    input[type="submit"]:hover,
-    input[type="submit"]:focus {
-      background-color: #3978c5;
-      outline: none;
-    }
-    #formMsg {
-      text-align: center;
-      font-weight: 600;
-      opacity: 0;
-      transition: opacity 0.4s ease;
-      user-select: none;
-    }
-    #scrollToTopBtn {
-      position: fixed;
-      bottom: 2rem;
-      right: 2rem;
-      background: var(--accent);
-      border: none;
-      border-radius: 50%;
-      width: 42px;
-      height: 42px;
-      color: var(--bg);
-      font-size: 1.6rem;
-      cursor: pointer;
-      box-shadow: 0 0 10px #4e9cffbb;
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity 0.3s ease;
-      user-select: none;
-      z-index: 1000;
-    }
-    #scrollToTopBtn.show {
-      opacity: 1;
-      pointer-events: auto;
-    }
-    #tosBtnContainer {
-      position: fixed;
-      bottom: 80px;
-      right: 20px;
-      display: flex;
-      flex-direction: column;
-      gap: 0.8rem;
-      z-index: 1000;
-      user-select: none;
-    }
-    #tosBtnContainer button {
-      background-color: var(--primary);
-      border: 2px solid var(--accent);
-      border-radius: 24px;
-      padding: 0.5rem 1.2rem;
-      font-size: 0.9rem;
-      color: var(--accent);
-      cursor: pointer;
-      transition: background-color 0.3s, color 0.3s;
-      min-width: 160px;
-      font-weight: 600;
-      box-shadow: 0 0 10px #4e9cff88;
-    }
-    #tosBtnContainer button:hover,
-    #tosBtnContainer button:focus {
-      background-color: var(--accent);
-      color: var(--bg);
-      outline: none;
-    }
-    #cookieBanner {
-      position: fixed;
-      bottom: 0;
-      width: 100%;
-      background: #222234cc;
-      color: var(--text);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 0.8rem 1rem;
-      gap: 1rem;
-      user-select: none;
-      font-size: 0.95rem;
-      z-index: 2000;
-    }
-    #cookieBanner button {
-      background: var(--accent);
-      border: none;
-      padding: 0.5rem 1rem;
-      border-radius: 6px;
-      font-weight: 600;
-      color: var(--bg);
-      cursor: pointer;
-      transition: background-color 0.25s;
-    }
-    #cookieBanner button:hover,
-    #cookieBanner button:focus {
-      background: #3978c5;
-      outline: none;
-    }
-    #tosModal {
-      display: none;
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
-      background: rgba(18, 18, 28, 0.95);
-      color: var(--text);
-      overflow-y: auto;
-      padding: 2rem 1rem;
-      box-sizing: border-box;
-      z-index: 5000;
-      user-select: text;
-    }
-    #tosModal.active {
-      display: block;
-    }
-    #tosModalContent {
-      background: var(--primary);
-      max-width: 850px;
-      margin: 2rem auto;
-      padding: 2rem 2.5rem;
-      border-radius: 10px;
-      box-shadow: 0 0 25px #4e9cffaa;
-      position: relative;
-    }
-    #tosModalContent h2 {
-      margin-top: 0;
-      color: var(--accent);
-      font-size: 2rem;
-      margin-bottom: 1rem;
-    }
-    #tosCloseBtn {
-      position: absolute;
-      top: 1rem;
-      right: 1.5rem;
-      background: transparent;
-      border: none;
-      font-size: 2rem;
-      color: var(--accent);
-      cursor: pointer;
-      user-select: none;
-      transition: color 0.3s;
-    }
-    #tosCloseBtn:hover,
-    #tosCloseBtn:focus {
-      color: var(--danger);
-      outline: none;
-    }
-    #tosToggle {
-      margin-bottom: 1rem;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      font-weight: 600;
-      color: var(--text);
-      user-select: none;
-    }
-    #tosToggle label {
-      cursor: pointer;
-    }
-    #tosToggle input[type="checkbox"] {
-      width: 40px;
-      height: 20px;
-      position: relative;
-      appearance: none;
-      background: #444;
-      border-radius: 20px;
-      outline: none;
-      cursor: pointer;
-      transition: background 0.3s;
-      vertical-align: middle;
-    }
-    #tosToggle input[type="checkbox"]::before {
-      content: "";
-      position: absolute;
-      top: 2px;
-      left: 2px;
-      width: 16px;
-      height: 16px;
-      background: var(--accent);
-      border-radius: 50%;
-      transition: 0.3s;
-    }
-    #tosToggle input[type="checkbox"]:checked {
-      background: var(--accent);
-    }
-    #tosToggle input[type="checkbox"]:checked::before {
-      transform: translateX(20px);
-    }
-    #siteTosContent,
-    #botTosContent {
-      font-size: 1rem;
-      line-height: 1.6;
-      max-height: 60vh;
-      overflow-y: auto;
-      padding-right: 0.8rem;
-      user-select: text;
-    }
-    /* Scrollbar for modal */
-    #siteTosContent::-webkit-scrollbar,
-    #botTosContent::-webkit-scrollbar {
-      width: 8px;
-    }
-    #siteTosContent::-webkit-scrollbar-thumb,
-    #botTosContent::-webkit-scrollbar-thumb {
-      background: var(--accent);
+      color: var(--primary);
       border-radius: 4px;
-    }
-    #siteTosContent::-webkit-scrollbar-track,
-    #botTosContent::-webkit-scrollbar-track {
-      background: var(--primary);
+      margin-right: 5px;
     }
   </style>
 </head>
 <body>
   <header>
-    <h1>Legal & DMCA Policy</h1>
-    <p>Protecting our content and your rights</p>
+    <h1>Legal, DMCA & Terms</h1>
+    <p>globalstats.xyz – Protecting your rights and ours</p>
+    <nav>
+      <a href="#dmca">DMCA</a>
+      <a href="#website-tos">Website ToS</a>
+      <a href="#bot-tos">Bot ToS</a>
+      <a href="#privacy">Privacy</a>
+      <a href="#bots">Our Bots</a>
+      <a href="https://portfolioynwglobal.vercel.app" target="_blank">Portfolio</a>
+      <a href="https://discord.gg/yTGkNxc7eU" target="_blank">Discord</a>
+    </nav>
+    <a class="button" href="https://globalstats.xyz" target="_blank">Visit globalstats.xyz</a>
   </header>
 
   <main>
-    <section>
+    <section id="dmca">
       <h2>📄 DMCA Protection</h2>
-      <p>All original content on the website globalstats.xyz (including text, code, media, design, and other intellectual property) is protected under the <strong>Digital Millennium Copyright Act (DMCA)</strong> and other applicable copyright laws.</p>
-      <p>If you believe your copyrighted work has been used improperly, please email:</p>
+      <p>All content and services provided on globalstats.xyz and by our bots are protected under U.S. and international copyright law.</p>
+      <p>If you believe content infringes on your rights, please email:</p>
       <p><strong>Email:</strong> <a href="mailto:globalstats.xyz@gmail.com">globalstats.xyz@gmail.com</a></p>
-      <p>Include:</p>
       <ul>
-        <li>Link to the original content on this site</li>
-        <li>Link to the infringing content</li>
-        <li>Proof of ownership</li>
+        <li>Direct link to the infringing content</li>
+        <li>Link to your original work</li>
+        <li>Your contact details and proof of ownership</li>
       </ul>
     </section>
 
-    <section>
-      <h2>📜 Terms of Service (TOS) - Site</h2>
-      <p>By accessing or using this website, you agree to the following terms:</p>
+    <section id="website-tos">
+      <h2>📜 Website Terms of Service</h2>
       <ul>
-        <li>Do not spam, harass, or abuse the site or its users.</li>
-        <li>Do not attempt to exploit, scan, or tamper with the server.</li>
-        <li>Do not launch or assist in any DDoS or malicious activity.</li>
-        <li>Automation, scraping, or abuse of any kind is forbidden unless explicitly allowed by written permission.</li>
+        <li>Do not spam, harass, or exploit this site or its systems.</li>
+        <li>No stress testing, no scraping, no automated crawling without permission.</li>
+        <li>Token grabbing, malicious injection, or browser-based exploits are strictly forbidden.</li>
+        <li>Violation of these rules may result in:
+          <ul>
+            <li>IP blacklisting</li>
+            <li>Browser fingerprint bans</li>
+            <li>Legal action if necessary</li>
+          </ul>
+        </li>
       </ul>
-      <p>Violations may result in:</p>
-      <ul>
-        <li><strong>IP bans</strong> and browser fingerprint blacklisting.</li>
-        <li><strong>Reporting</strong> to ISPs, hosts, or authorities.</li>
-        <li>Legal action under applicable law.</li>
-      </ul>
+      <div class="highlight">
+        ⚠️ We enforce all violations seriously and reserve the right to take appropriate legal and technical action.
+      </div>
     </section>
 
-    <section>
-      <h2>👁️ Privacy Notice</h2>
-      <p>This site does not collect personal data unless voluntarily submitted (e.g. through a contact form). Server logs may be used for abuse prevention and security purposes.</p>
-    </section>
-
-    <section>
-      <h2>⚠️ Violations & Enforcement</h2>
-      <p>We reserve the right to monitor activity, block malicious users, and pursue legal remedies if our terms or copyrights are violated.</p>
-    </section>
-
-    <section>
+    <section id="bot-tos">
       <h2>🤖 Bot Terms of Service</h2>
-      <p>These terms govern the use of any automated bots or scripts interacting with globalstats.xyz or its services:</p>
       <ul>
-        <li>Bots must not cause harm or threats toward any individual or group. Any use of bots for threatening, harassing, or abusive behavior will be taken seriously with swift enforcement actions.</li>
-        <li>Bots should comply with the <strong>site's robots.txt</strong> directives and only access allowed endpoints.</li>
-        <li>No scraping, automation, or data extraction without prior written consent from the site owner.</li>
-        <li>Bots must not overload or disrupt the server or services (e.g., via excessive requests, DDoS-like behavior).</li>
-        <li>Any detected malicious or abusive bot activity will result in immediate blocking and possible legal action.</li>
-        <li>Bot users are responsible for ensuring their bots follow all applicable laws, including copyright, privacy, and data protection regulations.</li>
+        <li>Bots may not be used for:
+          <ul>
+            <li>Harassment, threats, or intimidation</li>
+            <li>Sending unsolicited DMs or spam</li>
+            <li>Logging or stealing tokens or personal data</li>
+            <li>Involvement in hate speech, raiding, or illegal content</li>
+          </ul>
+        </li>
+        <li>You may not reverse engineer or exploit bot vulnerabilities</li>
+        <li>Abuse will result in bans and reports to Discord and authorities</li>
       </ul>
-      <p>Violations of these bot terms may lead to:</p>
-      <ul>
-        <li>Permanent IP and user-agent bans.</li>
-        <li>Legal action to the fullest extent permitted by law.</li>
-        <li>Reporting to relevant authorities or hosting providers.</li>
+      <div class="highlight">
+        🚫 Our bots are built for community safety and developer utility — abuse will not be tolerated.
+      </div>
+    </section>
+
+    <section id="bots">
+      <h2>📌 Our Bots</h2>
+      <p>All bots are managed and secured by globalstats.xyz:</p>
+      <ul class="bot-list">
+        <li><span class="tag">Global Bot</span> – Multipurpose utility, moderation</li>
+        <li><span class="tag">Global Dev Bot</span> – Tools for developers and testers</li>
+        <li><span class="tag">Security Bot</span> – Anti-raid protection and auto-logging</li>
       </ul>
     </section>
 
-    <section>
-      <h2>✉️ Contact Us</h2>
-      <form id="contactForm" novalidate>
-        <input type="text" id="name" name="name" placeholder="Your Name" required aria-label="Your Name" />
-        <input type="email" id="email" name="email" placeholder="Your Email" required aria-label="Your Email" />
-        <textarea id="message" name="message" placeholder="Your Message" rows="5" required aria-label="Your Message"></textarea>
-        <!-- Honeypot field - hidden from users -->
-        <input type="text" id="website" name="website" placeholder="Leave this field empty" style="display:none" autocomplete="off" />
-        <input type="submit" value="Send Message" />
-      </form>
-      <p id="formMsg" role="alert" aria-live="polite"></p>
+    <section id="privacy">
+      <h2>🔐 Privacy Policy</h2>
+      <ul>
+        <li>We do not sell or share your data.</li>
+        <li>We do not run ads or analytics.</li>
+        <li>Only basic logs are kept to detect abuse (e.g. IP address, request path).</li>
+        <li>We follow all applicable privacy and data laws.</li>
+      </ul>
     </section>
   </main>
 
   <footer>
-    &copy; 2025 globalstats.xyz All rights reserved.<br />
-    DMCA Protected. Violators will be subject to enforcement.
+    &copy; 2025 globalstats.xyz – All rights reserved.<br>
+    <a href="https://portfolioynwglobal.vercel.app" target="_blank">My Portfolio</a> |
+    <a href="https://discord.gg/yTGkNxc7eU" target="_blank">Join Discord</a>
   </footer>
-
-  <div id="tosBtnContainer" aria-label="Terms of Service Buttons">
-    <button id="openSiteTosBtn" aria-controls="tosModal" aria-expanded="false">Read Site TOS</button>
-    <button id="openBotTosBtn" aria-controls="tosModal" aria-expanded="false">Read Bot TOS</button>
-  </div>
-
-  <div id="tosModal" role="dialog" aria-modal="true" aria-labelledby="tosTitle">
-    <div id="tosModalContent">
-      <button id="tosCloseBtn" aria-label="Close Terms of Service">&times;</button>
-      <div id="tosToggle">
-        <label for="tosSwitch">Show Bot TOS</label>
-        <input type="checkbox" id="tosSwitch" />
-      </div>
-      <div id="siteTosContent" tabindex="0" style="display: block;">
-        <h2 id="tosTitle">Site Terms of Service (TOS)</h2>
-        <p>By accessing or using this website, you agree to the following terms:</p>
-        <ul>
-          <li>Do not spam, harass, or abuse the site or its users.</li>
-          <li>Do not attempt to exploit, scan, or tamper with the server.</li>
-          <li>Do not launch or assist in any DDoS or malicious activity.</li>
-          <li>Automation, scraping, or abuse of any kind is forbidden unless explicitly allowed by written permission.</li>
-        </ul>
-        <p>Violations may result in:</p>
-        <ul>
-          <li><strong>IP bans</strong> and browser fingerprint blacklisting.</li>
-          <li><strong>Reporting</strong> to ISPs, hosts, or authorities.</li>
-          <li>Legal action under applicable law.</li>
-        </ul>
-      </div>
-      <div id="botTosContent" tabindex="0" style="display: none;">
-        <h2>Bot Terms of Service</h2>
-        <p>These terms govern the use of any automated bots or scripts interacting with globalstats.xyz or its services:</p>
-        <ul>
-          <li>Bots must not cause harm or threats toward any individual or group. Any use of bots for threatening, harassing, or abusive behavior will be taken seriously with swift enforcement actions.</li>
-          <li>Bots should comply with the <strong>site's robots.txt</strong> directives and only access allowed endpoints.</li>
-          <li>No scraping, automation, or data extraction without prior written consent from the site owner.</li>
-          <li>Bots must not overload or disrupt the server or services (e.g., via excessive requests, DDoS-like behavior).</li>
-          <li>Any detected malicious or abusive bot activity will result in immediate blocking and possible legal action.</li>
-          <li>Bot users are responsible for ensuring their bots follow all applicable laws, including copyright, privacy, and data protection regulations.</li>
-        </ul>
-        <p>Violations of these bot terms may lead to:</p>
-        <ul>
-          <li>Permanent IP and user-agent bans.</li>
-          <li>Legal action to the fullest extent permitted by law.</li>
-          <li>Reporting to relevant authorities or hosting providers.</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-
-  <script>
-    // Animate sections on scroll
-    function revealSections() {
-      const sections = document.querySelectorAll("main section");
-      const windowHeight = window.innerHeight;
-      sections.forEach(section => {
-        const top = section.getBoundingClientRect().top;
-        if (top < windowHeight - 100) {
-          section.classList.add("visible");
-        }
-      });
-    }
-    window.addEventListener("scroll", revealSections);
-    window.addEventListener("load", revealSections);
-
-    // Scroll to top button
-    const scrollBtn = document.createElement("button");
-    scrollBtn.id = "scrollToTopBtn";
-    scrollBtn.title = "Scroll to top";
-    scrollBtn.innerHTML = "↑";
-    document.body.appendChild(scrollBtn);
-    scrollBtn.addEventListener("click", () => window.scrollTo({top: 0, behavior: "smooth"}));
-    window.addEventListener("scroll", () => {
-      if (window.scrollY > 300) scrollBtn.classList.add("show");
-      else scrollBtn.classList.remove("show");
-    });
-
-    // TOS Modal functionality
-    const tosModal = document.getElementById("tosModal");
-    const openSiteTosBtn = document.getElementById("openSiteTosBtn");
-    const openBotTosBtn = document.getElementById("openBotTosBtn");
-    const tosCloseBtn = document.getElementById("tosCloseBtn");
-    const tosSwitch = document.getElementById("tosSwitch");
-    const siteTosContent = document.getElementById("siteTosContent");
-    const botTosContent = document.getElementById("botTosContent");
-
-    function openModal(showBotTos = false) {
-      tosModal.classList.add("active");
-      if (showBotTos) {
-        tosSwitch.checked = true;
-        siteTosContent.style.display = "none";
-        botTosContent.style.display = "block";
-        openSiteTosBtn.setAttribute("aria-expanded", "false");
-        openBotTosBtn.setAttribute("aria-expanded", "true");
-      } else {
-        tosSwitch.checked = false;
-        siteTosContent.style.display = "block";
-        botTosContent.style.display = "none";
-        openSiteTosBtn.setAttribute("aria-expanded", "true");
-        openBotTosBtn.setAttribute("aria-expanded", "false");
-      }
-      tosModal.focus();
-    }
-    openSiteTosBtn.addEventListener("click", () => openModal(false));
-    openBotTosBtn.addEventListener("click", () => openModal(true));
-    tosCloseBtn.addEventListener("click", () => tosModal.classList.remove("active"));
-    tosSwitch.addEventListener("change", () => {
-      if (tosSwitch.checked) {
-        siteTosContent.style.display = "none";
-        botTosContent.style.display = "block";
-        openSiteTosBtn.setAttribute("aria-expanded", "false");
-        openBotTosBtn.setAttribute("aria-expanded", "true");
-      } else {
-        siteTosContent.style.display = "block";
-        botTosContent.style.display = "none";
-        openSiteTosBtn.setAttribute("aria-expanded", "true");
-        openBotTosBtn.setAttribute("aria-expanded", "false");
-      }
-    });
-
-    // Contact form with honeypot & basic validation
-    const contactForm = document.getElementById("contactForm");
-    const formMsg = document.getElementById("formMsg");
-
-    contactForm.addEventListener("submit", (e) => {
-      e.preventDefault();
-      formMsg.style.opacity = 0;
-
-      // Honeypot check
-      if (contactForm.website.value.trim() !== "") {
-        formMsg.textContent = "Spam detected. Message not sent.";
-        formMsg.style.color = "var(--danger)";
-        formMsg.style.opacity = 1;
-        return;
-      }
-      // Validate email format (basic)
-      const email = contactForm.email.value.trim();
-      const name = contactForm.name.value.trim();
-      const message = contactForm.message.value.trim();
-      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-      if (!name || !email || !message) {
-        formMsg.textContent = "Please fill in all required fields.";
-        formMsg.style.color = "var(--warning)";
-        formMsg.style.opacity = 1;
-        return;
-      }
-      if (!emailRegex.test(email)) {
-        formMsg.textContent = "Please enter a valid email address.";
-        formMsg.style.color = "var(--warning)";
-        formMsg.style.opacity = 1;
-        return;
-      }
-
-      // Simulate successful submission
-      formMsg.textContent = "Message sent successfully! We will get back to you soon.";
-      formMsg.style.color = "var(--success)";
-      formMsg.style.opacity = 1;
-      contactForm.reset();
-    });
-
-    // Cookie banner - simple acceptance
-    const cookieBanner = document.createElement("div");
-    cookieBanner.id = "cookieBanner";
-    cookieBanner.innerHTML = `
-      This site uses cookies for basic functionality. By continuing to use the site, you accept our <a href="#" id="cookieTosLink">Terms of Service</a>.
-      <button id="cookieAcceptBtn">Accept</button>
-    `;
-    document.body.appendChild(cookieBanner);
-    const cookieAcceptBtn = document.getElementById("cookieAcceptBtn");
-    const cookieTosLink = document.getElementById("cookieTosLink");
-
-    cookieAcceptBtn.addEventListener("click", () => {
-      localStorage.setItem("cookiesAccepted", "true");
-      cookieBanner.style.display = "none";
-    });
-    cookieTosLink.addEventListener("click", (e) => {
-      e.preventDefault();
-      openModal(false);
-    });
-
-    if (localStorage.getItem("cookiesAccepted") === "true") {
-      cookieBanner.style.display = "none";
-    }
-  </script>
 </body>
 </html>

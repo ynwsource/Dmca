@@ -1,74 +1,60 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Legal & DMCA Policy – globalstats.xyz</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
   <style>
     :root {
       --primary: #1e1e2f;
       --accent: #4e9cff;
       --text: #e8e8e8;
       --bg: #12121c;
-      --bg-alt: #1a1a2e;
       --danger: #ff4e4e;
+      --success: #4CAF50;
+      --warning: #ffae42;
+      --transition: 0.3s ease-in-out;
     }
-    [data-theme="light"] {
-      --primary: #e8f0fe;
-      --accent: #0055ff;
-      --text: #222;
-      --bg: #f8f9fa;
-      --bg-alt: #fff;
-    }
-    html { scroll-behavior: smooth; }
     body {
       margin: 0;
-      font-family: 'Inter', sans-serif;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       background-color: var(--bg);
       color: var(--text);
       line-height: 1.7;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
     }
     header {
       background: var(--primary);
       padding: 2rem 1rem;
       text-align: center;
       border-bottom: 2px solid var(--accent);
-      position: relative;
+      user-select: none;
     }
     header h1 {
       margin: 0;
       font-size: 2.4rem;
       color: var(--accent);
+      letter-spacing: 1px;
     }
     header p {
-      color: var(--text);
-      opacity: 0.8;
+      margin-top: 0.4rem;
       font-size: 1rem;
-    }
-    #themeToggle {
-      position: absolute;
-      top: 1rem;
-      right: 1rem;
-      background: none;
-      border: none;
-      font-size: 1.5rem;
-      color: var(--accent);
-      cursor: pointer;
+      color: #a0b9ff;
+      font-weight: 600;
     }
     main {
       max-width: 900px;
       margin: 2rem auto;
-      padding: 2rem;
-      background: var(--bg-alt);
-      box-shadow: 0 4px 20px rgba(0,0,0,0.2);
-      border-radius: 10px;
+      padding: 1rem 1.2rem;
+      flex-grow: 1;
     }
     section {
       margin-bottom: 3rem;
       opacity: 0;
       transform: translateY(20px);
-      transition: opacity 0.5s, transform 0.5s;
+      transition: opacity 0.8s var(--transition), transform 0.8s var(--transition);
     }
     section.visible {
       opacity: 1;
@@ -77,210 +63,563 @@
     section h2 {
       color: var(--accent);
       border-left: 5px solid var(--accent);
-      padding-left: 0.75rem;
-      font-size: 1.75rem;
+      padding-left: 0.7rem;
+      font-size: 1.7rem;
+      margin-bottom: 1rem;
+      user-select: text;
+    }
+    p, ul {
+      user-select: text;
+      font-size: 1rem;
     }
     ul {
-      padding-left: 1.5rem;
+      padding-left: 1.3rem;
+      margin-top: 0.5rem;
+      list-style: disc;
+    }
+    ul li {
+      margin-bottom: 0.5rem;
+    }
+    code {
+      background-color: #222;
+      padding: 0.25rem 0.5rem;
+      border-radius: 4px;
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 0.95rem;
+    }
+    footer {
+      text-align: center;
+      padding: 1.8rem 1rem;
+      font-size: 0.9rem;
+      border-top: 1px solid #333;
+      color: #888;
+      user-select: none;
     }
     a {
       color: var(--accent);
       text-decoration: none;
+      transition: color 0.25s;
     }
-    a:hover {
+    a:hover,
+    a:focus {
       text-decoration: underline;
-    }
-    footer {
-      text-align: center;
-      padding: 2rem 1rem;
-      font-size: 0.9rem;
-      border-top: 1px solid #333;
-      color: #aaa;
+      color: #82b1ff;
+      outline: none;
     }
     form {
+      max-width: 600px;
+      margin: 0 auto;
       display: flex;
       flex-direction: column;
       gap: 1rem;
-      background: var(--bg);
-      padding: 1.5rem;
-      border-radius: 8px;
     }
-    input, textarea {
-      background: var(--bg-alt);
-      border: 1px solid #444;
-      border-radius: 4px;
-      padding: 0.75rem;
-      color: var(--text);
+    input[type="text"],
+    input[type="email"],
+    textarea {
+      padding: 0.8rem 1rem;
+      border-radius: 6px;
+      border: none;
       font-size: 1rem;
       resize: vertical;
+      background-color: #222234;
+      color: var(--text);
+      box-shadow: inset 0 0 6px #00000080;
+      transition: box-shadow 0.3s;
     }
-    input::placeholder, textarea::placeholder {
-      color: #888;
+    input[type="text"]:focus,
+    input[type="email"]:focus,
+    textarea:focus {
+      outline: none;
+      box-shadow: 0 0 8px var(--accent);
     }
-    button, input[type="submit"] {
-      background: var(--accent);
-      color: white;
+    input[type="submit"] {
+      background-color: var(--accent);
+      color: var(--text);
       border: none;
-      padding: 0.75rem 1.2rem;
-      font-size: 1rem;
+      border-radius: 6px;
+      padding: 0.9rem 1.5rem;
+      font-weight: 700;
       cursor: pointer;
-      border-radius: 4px;
-      transition: background 0.3s;
+      transition: background-color 0.3s;
+      user-select: none;
     }
-    button:hover, input[type="submit"]:hover {
-      background: #357dcf;
+    input[type="submit"]:hover,
+    input[type="submit"]:focus {
+      background-color: #3978c5;
+      outline: none;
+    }
+    #formMsg {
+      text-align: center;
+      font-weight: 600;
+      opacity: 0;
+      transition: opacity 0.4s ease;
+      user-select: none;
     }
     #scrollToTopBtn {
       position: fixed;
-      bottom: 30px;
-      right: 30px;
-      z-index: 999;
+      bottom: 2rem;
+      right: 2rem;
       background: var(--accent);
-      color: #fff;
       border: none;
       border-radius: 50%;
-      width: 45px;
-      height: 45px;
-      font-size: 22px;
+      width: 42px;
+      height: 42px;
+      color: var(--bg);
+      font-size: 1.6rem;
       cursor: pointer;
-      display: none;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+      box-shadow: 0 0 10px #4e9cffbb;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+      user-select: none;
+      z-index: 1000;
     }
-    #scrollToTopBtn:hover {
-      background: #357dcf;
+    #scrollToTopBtn.show {
+      opacity: 1;
+      pointer-events: auto;
+    }
+    #tosBtnContainer {
+      position: fixed;
+      bottom: 80px;
+      right: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+      z-index: 1000;
+      user-select: none;
+    }
+    #tosBtnContainer button {
+      background-color: var(--primary);
+      border: 2px solid var(--accent);
+      border-radius: 24px;
+      padding: 0.5rem 1.2rem;
+      font-size: 0.9rem;
+      color: var(--accent);
+      cursor: pointer;
+      transition: background-color 0.3s, color 0.3s;
+      min-width: 160px;
+      font-weight: 600;
+      box-shadow: 0 0 10px #4e9cff88;
+    }
+    #tosBtnContainer button:hover,
+    #tosBtnContainer button:focus {
+      background-color: var(--accent);
+      color: var(--bg);
+      outline: none;
     }
     #cookieBanner {
       position: fixed;
       bottom: 0;
-      left: 0;
       width: 100%;
-      background: var(--bg-alt);
-      padding: 1rem;
-      text-align: center;
-      box-shadow: 0 -2px 10px rgba(0,0,0,0.2);
+      background: #222234cc;
+      color: var(--text);
       display: flex;
       justify-content: center;
+      align-items: center;
+      padding: 0.8rem 1rem;
       gap: 1rem;
+      user-select: none;
+      font-size: 0.95rem;
+      z-index: 2000;
     }
-    .hidden-honeypot {
+    #cookieBanner button {
+      background: var(--accent);
+      border: none;
+      padding: 0.5rem 1rem;
+      border-radius: 6px;
+      font-weight: 600;
+      color: var(--bg);
+      cursor: pointer;
+      transition: background-color 0.25s;
+    }
+    #cookieBanner button:hover,
+    #cookieBanner button:focus {
+      background: #3978c5;
+      outline: none;
+    }
+    #tosModal {
       display: none;
-      height: 0;
-      overflow: hidden;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(18, 18, 28, 0.95);
+      color: var(--text);
+      overflow-y: auto;
+      padding: 2rem 1rem;
+      box-sizing: border-box;
+      z-index: 5000;
+      user-select: text;
     }
-    @media (max-width: 600px) {
-      main { padding: 1rem; }
-      header h1 { font-size: 1.8rem; }
-      section h2 { font-size: 1.4rem; }
+    #tosModal.active {
+      display: block;
+    }
+    #tosModalContent {
+      background: var(--primary);
+      max-width: 850px;
+      margin: 2rem auto;
+      padding: 2rem 2.5rem;
+      border-radius: 10px;
+      box-shadow: 0 0 25px #4e9cffaa;
+      position: relative;
+    }
+    #tosModalContent h2 {
+      margin-top: 0;
+      color: var(--accent);
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+    #tosCloseBtn {
+      position: absolute;
+      top: 1rem;
+      right: 1.5rem;
+      background: transparent;
+      border: none;
+      font-size: 2rem;
+      color: var(--accent);
+      cursor: pointer;
+      user-select: none;
+      transition: color 0.3s;
+    }
+    #tosCloseBtn:hover,
+    #tosCloseBtn:focus {
+      color: var(--danger);
+      outline: none;
+    }
+    #tosToggle {
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-weight: 600;
+      color: var(--text);
+      user-select: none;
+    }
+    #tosToggle label {
+      cursor: pointer;
+    }
+    #tosToggle input[type="checkbox"] {
+      width: 40px;
+      height: 20px;
+      position: relative;
+      appearance: none;
+      background: #444;
+      border-radius: 20px;
+      outline: none;
+      cursor: pointer;
+      transition: background 0.3s;
+      vertical-align: middle;
+    }
+    #tosToggle input[type="checkbox"]::before {
+      content: "";
+      position: absolute;
+      top: 2px;
+      left: 2px;
+      width: 16px;
+      height: 16px;
+      background: var(--accent);
+      border-radius: 50%;
+      transition: 0.3s;
+    }
+    #tosToggle input[type="checkbox"]:checked {
+      background: var(--accent);
+    }
+    #tosToggle input[type="checkbox"]:checked::before {
+      transform: translateX(20px);
+    }
+    #siteTosContent,
+    #botTosContent {
+      font-size: 1rem;
+      line-height: 1.6;
+      max-height: 60vh;
+      overflow-y: auto;
+      padding-right: 0.8rem;
+      user-select: text;
+    }
+    /* Scrollbar for modal */
+    #siteTosContent::-webkit-scrollbar,
+    #botTosContent::-webkit-scrollbar {
+      width: 8px;
+    }
+    #siteTosContent::-webkit-scrollbar-thumb,
+    #botTosContent::-webkit-scrollbar-thumb {
+      background: var(--accent);
+      border-radius: 4px;
+    }
+    #siteTosContent::-webkit-scrollbar-track,
+    #botTosContent::-webkit-scrollbar-track {
+      background: var(--primary);
     }
   </style>
 </head>
 <body>
+  <header>
+    <h1>Legal & DMCA Policy</h1>
+    <p>Protecting our content and your rights</p>
+  </header>
 
-<header>
-  <h1>Legal & DMCA Policy</h1>
-  <p>Protecting our content and your rights</p>
-  <button id="themeToggle" title="Toggle Theme">🌓</button>
-</header>
+  <main>
+    <section>
+      <h2>📄 DMCA Protection</h2>
+      <p>All original content on this website (including text, code, media, design, and other intellectual property) is protected under the <strong>Digital Millennium Copyright Act (DMCA)</strong> and other applicable copyright laws.</p>
+      <p>If you believe your copyrighted work has been used improperly, please email:</p>
+      <p><strong>Email:</strong> <a href="mailto:globalstats.xyz@gmail.com">globalstats.xyz@gmail.com</a></p>
+      <p>Include:</p>
+      <ul>
+        <li>Link to the original content on this site</li>
+        <li>Link to the infringing content</li>
+        <li>Proof of ownership</li>
+      </ul>
+    </section>
 
-<main>
-  <section><h2>📄 DMCA Protection</h2><p>All original content…</p></section>
-  <section><h2>📜 Terms of Service (TOS)</h2><p>By accessing or using this website…</p></section>
-  <section><h2>👁️ Privacy Notice</h2><p>This site does not collect personal data…</p></section>
-  <section><h2>⚠️ Violations & Enforcement</h2><p>We reserve the right to monitor activity…</p></section>
+    <section>
+      <h2>📜 Terms of Service (TOS) - Site</h2>
+      <p>By accessing or using this website, you agree to the following terms:</p>
+      <ul>
+        <li>Do not spam, harass, or abuse the site or its users.</li>
+        <li>Do not attempt to exploit, scan, or tamper with the server.</li>
+        <li>Do not launch or assist in any DDoS or malicious activity.</li>
+        <li>Automation, scraping, or abuse of any kind is forbidden unless explicitly allowed by written permission.</li>
+      </ul>
+      <p>Violations may result in:</p>
+      <ul>
+        <li><strong>IP bans</strong> and browser fingerprint blacklisting.</li>
+        <li><strong>Reporting</strong> to ISPs, hosts, or authorities.</li>
+        <li>Legal action under applicable law.</li>
+      </ul>
+    </section>
 
-  <section>
-    <h2>📬 Contact Us</h2>
-    <form action="https://formspree.io/f/your-form-id" method="POST" autocomplete="off" id="contactForm">
-      <input type="text" name="name" placeholder="Your Name" required />
-      <input type="email" name="_replyto" placeholder="Your Email" required />
-      <textarea name="message" rows="5" placeholder="Your Message..." required></textarea>
+    <section>
+      <h2>👁️ Privacy Notice</h2>
+      <p>This site does not collect personal data unless voluntarily submitted (e.g. through a contact form). Server logs may be used for abuse prevention and security purposes.</p>
+    </section>
 
-      <!-- Honeypot field -->
-      <div class="hidden-honeypot">
-        <label>Leave this field empty:</label>
-        <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" />
+    <section>
+      <h2>⚠️ Violations & Enforcement</h2>
+      <p>We reserve the right to monitor activity, block malicious users, and pursue legal remedies if our terms or copyrights are violated.</p>
+    </section>
+
+    <section>
+      <h2>🤖 Bot Terms of Service</h2>
+      <p>These terms govern the use of any automated bots or scripts interacting with globalstats.xyz or its services:</p>
+      <ul>
+        <li>Bots must not cause harm or threats toward any individual or group. Any use of bots for threatening, harassing, or abusive behavior will be taken seriously with swift enforcement actions.</li>
+        <li>Bots should comply with the <strong>site's robots.txt</strong> directives and only access allowed endpoints.</li>
+        <li>No scraping, automation, or data extraction without prior written consent from the site owner.</li>
+        <li>Bots must not overload or disrupt the server or services (e.g., via excessive requests, DDoS-like behavior).</li>
+        <li>Any detected malicious or abusive bot activity will result in immediate blocking and possible legal action.</li>
+        <li>Bot users are responsible for ensuring their bots follow all applicable laws, including copyright, privacy, and data protection regulations.</li>
+      </ul>
+      <p>Violations of these bot terms may lead to:</p>
+      <ul>
+        <li>Permanent IP and user-agent bans.</li>
+        <li>Legal action to the fullest extent permitted by law.</li>
+        <li>Reporting to relevant authorities or hosting providers.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>✉️ Contact Us</h2>
+      <form id="contactForm" novalidate>
+        <input type="text" id="name" name="name" placeholder="Your Name" required aria-label="Your Name" />
+        <input type="email" id="email" name="email" placeholder="Your Email" required aria-label="Your Email" />
+        <textarea id="message" name="message" placeholder="Your Message" rows="5" required aria-label="Your Message"></textarea>
+        <!-- Honeypot field - hidden from users -->
+        <input type="text" id="website" name="website" placeholder="Leave this field empty" style="display:none" autocomplete="off" />
+        <input type="submit" value="Send Message" />
+      </form>
+      <p id="formMsg" role="alert" aria-live="polite"></p>
+    </section>
+  </main>
+
+  <footer>
+    &copy; 2025 globalstats.xyz All rights reserved.<br />
+    DMCA Protected. Violators will be subject to enforcement.
+  </footer>
+
+  <div id="tosBtnContainer" aria-label="Terms of Service Buttons">
+    <button id="openSiteTosBtn" aria-controls="tosModal" aria-expanded="false">Read Site TOS</button>
+    <button id="openBotTosBtn" aria-controls="tosModal" aria-expanded="false">Read Bot TOS</button>
+  </div>
+
+  <div id="tosModal" role="dialog" aria-modal="true" aria-labelledby="tosTitle">
+    <div id="tosModalContent">
+      <button id="tosCloseBtn" aria-label="Close Terms of Service">&times;</button>
+      <div id="tosToggle">
+        <label for="tosSwitch">Show Bot TOS</label>
+        <input type="checkbox" id="tosSwitch" />
       </div>
+      <div id="siteTosContent" tabindex="0" style="display: block;">
+        <h2 id="tosTitle">Site Terms of Service (TOS)</h2>
+        <p>By accessing or using this website, you agree to the following terms:</p>
+        <ul>
+          <li>Do not spam, harass, or abuse the site or its users.</li>
+          <li>Do not attempt to exploit, scan, or tamper with the server.</li>
+          <li>Do not launch or assist in any DDoS or malicious activity.</li>
+          <li>Automation, scraping, or abuse of any kind is forbidden unless explicitly allowed by written permission.</li>
+        </ul>
+        <p>Violations may result in:</p>
+        <ul>
+          <li><strong>IP bans</strong> and browser fingerprint blacklisting.</li>
+          <li><strong>Reporting</strong> to ISPs, hosts, or authorities.</li>
+          <li>Legal action under applicable law.</li>
+        </ul>
+      </div>
+      <div id="botTosContent" tabindex="0" style="display: none;">
+        <h2>Bot Terms of Service</h2>
+        <p>These terms govern the use of any automated bots or scripts interacting with globalstats.xyz or its services:</p>
+        <ul>
+          <li>Bots must not cause harm or threats toward any individual or group. Any use of bots for threatening, harassing, or abusive behavior will be taken seriously with swift enforcement actions.</li>
+          <li>Bots should comply with the <strong>site's robots.txt</strong> directives and only access allowed endpoints.</li>
+          <li>No scraping, automation, or data extraction without prior written consent from the site owner.</li>
+          <li>Bots must not overload or disrupt the server or services (e.g., via excessive requests, DDoS-like behavior).</li>
+          <li>Any detected malicious or abusive bot activity will result in immediate blocking and possible legal action.</li>
+          <li>Bot users are responsible for ensuring their bots follow all applicable laws, including copyright, privacy, and data protection regulations.</li>
+        </ul>
+        <p>Violations of these bot terms may lead to:</p>
+        <ul>
+          <li>Permanent IP and user-agent bans.</li>
+          <li>Legal action to the fullest extent permitted by law.</li>
+          <li>Reporting to relevant authorities or hosting providers.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
 
-      <!-- Submission time (anti-bot timing check) -->
-      <input type="hidden" name="timestamp" id="formTimestamp" value="">
-
-      <input type="submit" value="Send Message" />
-      <p id="formMsg" style="opacity:0; margin-top:1rem; text-align:center;"></p>
-    </form>
-  </section>
-</main>
-
-<footer>
-  &copy; 2025 globalstats.xyz All rights reserved.<br>
-  DMCA Protected. Violators will be subject to enforcement.
-</footer>
-
-<button id="scrollToTopBtn" title="Back to top">↑</button>
-
-<div id="cookieBanner" style="display:none;">
-  <span>🍪 We use cookies to improve your experience.</span>
-  <button id="acceptCookies">Accept</button>
-</div>
-
-<script>
-  // Theme toggle
-  document.getElementById('themeToggle').addEventListener('click', () => {
-    document.documentElement.dataset.theme = document.documentElement.dataset.theme === 'light' ? 'dark' : 'light';
-  });
-
-  // Scroll to top button
-  const scrollBtn = document.getElementById('scrollToTopBtn');
-  window.addEventListener('scroll', () => {
-    scrollBtn.style.display = window.scrollY > 300 ? 'block' : 'none';
-  });
-  scrollBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
-
-  // Reveal sections on scroll
-  document.querySelectorAll('section').forEach(sec => {
-    new IntersectionObserver(entries => entries.forEach(e => {
-      if (e.isIntersecting) e.target.classList.add('visible');
-    }), { threshold: 0.1 }).observe(sec);
-  });
-
-  // Cookie banner
-  const cb = document.getElementById('cookieBanner');
-  if (!localStorage.getItem('cookiesAccepted')) {
-    cb.style.display = 'flex';
-    document.getElementById('acceptCookies').onclick = () => {
-      localStorage.setItem('cookiesAccepted', 'yes');
-      cb.remove();
-    };
-  }
-
-  // Form timestamp (anti-bot)
-  document.getElementById('formTimestamp').value = Date.now();
-
-  // Form submission protection
-  const form = document.getElementById('contactForm');
-  const msg = document.getElementById('formMsg');
-  form.addEventListener('submit', e => {
-    e.preventDefault();
-    const honeypot = form.querySelector('[name="_gotcha"]').value;
-    const timeDiff = (Date.now() - form.querySelector('#formTimestamp').value) / 1000;
-
-    if (honeypot || timeDiff < 3) {
-      msg.innerText = "⚠️ Submission blocked. Please try again.";
-      msg.style.opacity = 1;
-      return;
+  <script>
+    // Animate sections on scroll
+    function revealSections() {
+      const sections = document.querySelectorAll("main section");
+      const windowHeight = window.innerHeight;
+      sections.forEach(section => {
+        const top = section.getBoundingClientRect().top;
+        if (top < windowHeight - 100) {
+          section.classList.add("visible");
+        }
+      });
     }
+    window.addEventListener("scroll", revealSections);
+    window.addEventListener("load", revealSections);
 
-    fetch(form.action, {
-      method: 'POST',
-      body: new FormData(form),
-      headers: { 'Accept': 'application/json' }
-    }).then(response => {
-      msg.innerText = response.ok ? "✅ Message sent successfully!" : "❌ Error sending message.";
-      msg.style.opacity = 1;
-      form.reset();
-      form.querySelector('#formTimestamp').value = Date.now();
+    // Scroll to top button
+    const scrollBtn = document.createElement("button");
+    scrollBtn.id = "scrollToTopBtn";
+    scrollBtn.title = "Scroll to top";
+    scrollBtn.innerHTML = "↑";
+    document.body.appendChild(scrollBtn);
+    scrollBtn.addEventListener("click", () => window.scrollTo({top: 0, behavior: "smooth"}));
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 300) scrollBtn.classList.add("show");
+      else scrollBtn.classList.remove("show");
     });
-  });
-</script>
 
+    // TOS Modal functionality
+    const tosModal = document.getElementById("tosModal");
+    const openSiteTosBtn = document.getElementById("openSiteTosBtn");
+    const openBotTosBtn = document.getElementById("openBotTosBtn");
+    const tosCloseBtn = document.getElementById("tosCloseBtn");
+    const tosSwitch = document.getElementById("tosSwitch");
+    const siteTosContent = document.getElementById("siteTosContent");
+    const botTosContent = document.getElementById("botTosContent");
+
+    function openModal(showBotTos = false) {
+      tosModal.classList.add("active");
+      if (showBotTos) {
+        tosSwitch.checked = true;
+        siteTosContent.style.display = "none";
+        botTosContent.style.display = "block";
+        openSiteTosBtn.setAttribute("aria-expanded", "false");
+        openBotTosBtn.setAttribute("aria-expanded", "true");
+      } else {
+        tosSwitch.checked = false;
+        siteTosContent.style.display = "block";
+        botTosContent.style.display = "none";
+        openSiteTosBtn.setAttribute("aria-expanded", "true");
+        openBotTosBtn.setAttribute("aria-expanded", "false");
+      }
+      tosModal.focus();
+    }
+    openSiteTosBtn.addEventListener("click", () => openModal(false));
+    openBotTosBtn.addEventListener("click", () => openModal(true));
+    tosCloseBtn.addEventListener("click", () => tosModal.classList.remove("active"));
+    tosSwitch.addEventListener("change", () => {
+      if (tosSwitch.checked) {
+        siteTosContent.style.display = "none";
+        botTosContent.style.display = "block";
+        openSiteTosBtn.setAttribute("aria-expanded", "false");
+        openBotTosBtn.setAttribute("aria-expanded", "true");
+      } else {
+        siteTosContent.style.display = "block";
+        botTosContent.style.display = "none";
+        openSiteTosBtn.setAttribute("aria-expanded", "true");
+        openBotTosBtn.setAttribute("aria-expanded", "false");
+      }
+    });
+
+    // Contact form with honeypot & basic validation
+    const contactForm = document.getElementById("contactForm");
+    const formMsg = document.getElementById("formMsg");
+
+    contactForm.addEventListener("submit", (e) => {
+      e.preventDefault();
+      formMsg.style.opacity = 0;
+
+      // Honeypot check
+      if (contactForm.website.value.trim() !== "") {
+        formMsg.textContent = "Spam detected. Message not sent.";
+        formMsg.style.color = "var(--danger)";
+        formMsg.style.opacity = 1;
+        return;
+      }
+      // Validate email format (basic)
+      const email = contactForm.email.value.trim();
+      const name = contactForm.name.value.trim();
+      const message = contactForm.message.value.trim();
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!name || !email || !message) {
+        formMsg.textContent = "Please fill in all required fields.";
+        formMsg.style.color = "var(--warning)";
+        formMsg.style.opacity = 1;
+        return;
+      }
+      if (!emailRegex.test(email)) {
+        formMsg.textContent = "Please enter a valid email address.";
+        formMsg.style.color = "var(--warning)";
+        formMsg.style.opacity = 1;
+        return;
+      }
+
+      // Simulate successful submission
+      formMsg.textContent = "Message sent successfully! We will get back to you soon.";
+      formMsg.style.color = "var(--success)";
+      formMsg.style.opacity = 1;
+      contactForm.reset();
+    });
+
+    // Cookie banner - simple acceptance
+    const cookieBanner = document.createElement("div");
+    cookieBanner.id = "cookieBanner";
+    cookieBanner.innerHTML = `
+      This site uses cookies for basic functionality. By continuing to use the site, you accept our <a href="#" id="cookieTosLink">Terms of Service</a>.
+      <button id="cookieAcceptBtn">Accept</button>
+    `;
+    document.body.appendChild(cookieBanner);
+    const cookieAcceptBtn = document.getElementById("cookieAcceptBtn");
+    const cookieTosLink = document.getElementById("cookieTosLink");
+
+    cookieAcceptBtn.addEventListener("click", () => {
+      localStorage.setItem("cookiesAccepted", "true");
+      cookieBanner.style.display = "none";
+    });
+    cookieTosLink.addEventListener("click", (e) => {
+      e.preventDefault();
+      openModal(false);
+    });
+
+    if (localStorage.getItem("cookiesAccepted") === "true") {
+      cookieBanner.style.display = "none";
+    }
+  </script>
 </body>
 </html>

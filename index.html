@@ -1,241 +1,558 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Legal, DMCA & ToS – globalstats.xyz</title>
-  <style>
-    :root {
-      --primary: #1e1e2f;
-      --accent: #4e9cff;
-      --text: #e8e8e8;
-      --bg: #12121c;
-      --danger: #ff4e4e;
-      --light-accent: #9ecaff;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Legal, DMCA & Terms – globalstats.xyz</title>
+    <style>
+        :root {
+            --primary: #0f0f23;
+            --secondary: #1a1a2e;
+            --accent: #4361ee;
+            --accent-light: #7209b7;
+            --text: #e8eaed;
+            --text-muted: #9aa0a6;
+            --bg: #0d1117;
+            --danger: #f85149;
+            --success: #7c3aed;
+            --border: #30363d;
+            --card-bg: #161b22;
+        }
 
-    body {
-      margin: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background-color: var(--bg);
-      color: var(--text);
-      line-height: 1.7;
-    }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    header {
-      background: var(--primary);
-      padding: 2rem 1rem;
-      text-align: center;
-      border-bottom: 2px solid var(--accent);
-    }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, var(--bg) 0%, var(--primary) 100%);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
 
-    header h1 {
-      margin: 0;
-      font-size: 2.5rem;
-      color: var(--accent);
-    }
+        /* Loading Screen */
+        .loading-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, #0f0f23, #1a1a2e, #4361ee);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 0.5s ease, visibility 0.5s ease;
+        }
 
-    header p {
-      margin-top: 0.5rem;
-      font-size: 1.1rem;
-      color: var(--light-accent);
-    }
+        .loading-screen.hidden {
+            opacity: 0;
+            visibility: hidden;
+        }
 
-    nav {
-      margin-top: 1rem;
-    }
+        .loading-content {
+            text-align: center;
+            color: white;
+        }
 
-    nav a {
-      color: var(--text);
-      margin: 0 10px;
-      font-weight: 500;
-      text-decoration: none;
-      font-size: 0.95rem;
-    }
+        .loading-title {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            background: linear-gradient(45deg, #4361ee, #7209b7);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
 
-    nav a:hover {
-      color: var(--accent);
-    }
+        .loading-subtitle {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.8;
+        }
 
-    .button {
-      display: inline-block;
-      margin-top: 1.5rem;
-      padding: 0.6rem 1.2rem;
-      font-size: 1rem;
-      background-color: var(--accent);
-      color: var(--primary);
-      border: none;
-      border-radius: 4px;
-      text-decoration: none;
-      font-weight: 600;
-    }
+        .loading-btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background: linear-gradient(45deg, #4361ee, #7209b7);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(67, 97, 238, 0.3);
+        }
 
-    .button:hover {
-      background-color: #76baff;
-    }
+        .loading-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(67, 97, 238, 0.4);
+        }
 
-    main {
-      max-width: 960px;
-      margin: 2rem auto;
-      padding: 1rem;
-    }
+        .spinner {
+            width: 50px;
+            height: 50px;
+            border: 4px solid rgba(255, 255, 255, 0.1);
+            border-left: 4px solid #4361ee;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 2rem auto;
+        }
 
-    section {
-      margin-bottom: 2.5rem;
-      background-color: #1a1a28;
-      border-left: 4px solid var(--accent);
-      padding: 1.5rem;
-      border-radius: 8px;
-    }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
 
-    section h2 {
-      color: var(--accent);
-      font-size: 1.6rem;
-      margin-top: 0;
-    }
+        /* Header */
+        header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            padding: 3rem 1rem;
+            text-align: center;
+            border-bottom: 1px solid var(--border);
+            position: relative;
+            overflow: hidden;
+        }
 
-    section p, li {
-      font-size: 1rem;
-    }
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="%23ffffff" stroke-width="0.5" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+            opacity: 0.3;
+        }
 
-    footer {
-      text-align: center;
-      padding: 2rem 1rem;
-      font-size: 0.9rem;
-      border-top: 1px solid #333;
-      color: #aaa;
-    }
+        .header-content {
+            position: relative;
+            z-index: 1;
+        }
 
-    a {
-      color: var(--accent);
-      text-decoration: none;
-    }
+        header h1 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-weight: 800;
+            background: linear-gradient(45deg, var(--accent), var(--accent-light));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 0.5rem;
+        }
 
-    a:hover {
-      text-decoration: underline;
-    }
+        header p {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+        }
 
-    ul {
-      padding-left: 1.5rem;
-    }
+        nav {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
 
-    .highlight {
-      background-color: #2a2a40;
-      padding: 1rem;
-      border-left: 4px solid var(--danger);
-      border-radius: 6px;
-      margin-top: 1rem;
-      color: #ffcccc;
-    }
+        nav a {
+            color: var(--text);
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            font-weight: 500;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+        }
 
-    .bot-list {
-      padding-left: 1rem;
-      list-style: square;
-    }
+        nav a:hover {
+            background: var(--accent);
+            color: white;
+            transform: translateY(-2px);
+        }
 
-    .tag {
-      display: inline-block;
-      padding: 0.3rem 0.6rem;
-      font-size: 0.85rem;
-      background-color: var(--accent);
-      color: var(--primary);
-      border-radius: 4px;
-      margin-right: 5px;
-    }
-  </style>
+        /* Main Content */
+        main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+        }
+
+        .section {
+            background: var(--card-bg);
+            border-radius: 15px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border: 1px solid var(--border);
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--accent), var(--accent-light));
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .section-icon {
+            font-size: 2rem;
+            margin-right: 1rem;
+        }
+
+        .section h2 {
+            color: var(--accent);
+            font-size: 1.8rem;
+            font-weight: 700;
+        }
+
+        .section p, .section li {
+            color: var(--text);
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .section ul {
+            padding-left: 1.5rem;
+        }
+
+        .section li {
+            margin-bottom: 0.5rem;
+        }
+
+        .highlight {
+            background: linear-gradient(135deg, rgba(248, 81, 73, 0.1), rgba(248, 81, 73, 0.05));
+            border: 1px solid var(--danger);
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            color: #ffcccc;
+        }
+
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .service-card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .service-card:hover {
+            border-color: var(--accent);
+            transform: translateY(-3px);
+        }
+
+        .service-title {
+            color: var(--accent);
+            font-weight: 600;
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-links {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .contact-card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 1.5rem;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .contact-card:hover {
+            border-color: var(--accent);
+            transform: translateY(-3px);
+        }
+
+        .contact-card a {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .contact-card a:hover {
+            text-decoration: underline;
+        }
+
+        .legal-notice {
+            background: linear-gradient(135deg, rgba(124, 58, 237, 0.1), rgba(124, 58, 237, 0.05));
+            border: 1px solid var(--success);
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin: 2rem 0;
+            text-align: center;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--primary);
+            padding: 2rem 1rem;
+            text-align: center;
+            border-top: 1px solid var(--border);
+            color: var(--text-muted);
+        }
+
+        footer a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .loading-title {
+                font-size: 2rem;
+            }
+           
+            .section {
+                padding: 1.5rem;
+            }
+           
+            .section-header {
+                flex-direction: column;
+                text-align: center;
+            }
+           
+            .section-icon {
+                margin-right: 0;
+                margin-bottom: 0.5rem;
+            }
+           
+            nav {
+                flex-direction: column;
+                align-items: center;
+            }
+           
+            .service-grid,
+            .contact-links {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Link styling */
+        a {
+            color: var(--accent);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        a:hover {
+            color: var(--accent-light);
+        }
+    </style>
 </head>
 <body>
-  <header>
-    <h1>Legal, DMCA & Terms</h1>
-    <p>globalstats.xyz – Protecting your rights and ours</p>
-    <nav>
-      <a href="#dmca">DMCA</a>
-      <a href="#website-tos">Website ToS</a>
-      <a href="#bot-tos">Bot ToS</a>
-      <a href="#privacy">Privacy</a>
-      <a href="#bots">Our Bots</a>
-      <a href="https://portfolioynwglobal.vercel.app" target="_blank">Portfolio</a>
-      <a href="https://discord.gg/yTGkNxc7eU" target="_blank">Discord</a>
-    </nav>
-    <a class="button" href="https://globalstats.xyz" target="_blank">Visit globalstats.xyz</a>
-  </header>
+    <!-- Loading Screen -->
+    <div class="loading-screen" id="loadingScreen">
+        <div class="loading-content">
+            <div class="loading-title">hbkvxncent</div>
+            <div class="loading-subtitle">Join Rawkitt Server</div>
+            <a href="https://discord.gg/K3Qw74uXjv" class="loading-btn" target="_blank">Join Discord</a>
+            <div class="spinner"></div>
+        </div>
+    </div>
 
-  <main>
-    <section id="dmca">
-      <h2>📄 DMCA Protection</h2>
-      <p>All content and services provided on globalstats.xyz and through our bots are protected under U.S. and international copyright law.</p>
-      <p>If you believe content infringes on your rights, please email:</p>
-      <p><strong>Email:</strong> <a href="mailto:contact@globalstats.xyz">contact@globalstats.xyz</a></p>
-      <ul>
-        <li>Direct link to the infringing content</li>
-        <li>Link to your original work</li>
-        <li>Your contact details and proof of ownership</li>
-      </ul>
-    </section>
+    <header>
+        <div class="header-content">
+            <h1>Legal & Terms</h1>
+            <p>globalstats.xyz – Protecting your rights and ours</p>
+            <nav>
+                <a href="#dmca">📄 DMCA</a>
+                <a href="#website-tos">📜 Website ToS</a>
+                <a href="#bot-tos">🤖 Bot ToS</a>
+                <a href="#privacy">🔐 Privacy</a>
+                <a href="#services">🚀 Services</a>
+                <a href="#contact">🌐 Contact</a>
+            </nav>
+        </div>
+    </header>
 
-    <section id="website-tos">
-      <h2>📜 Website Terms of Service</h2>
-      <ul>
-        <li>Do not spam, harass, or exploit this site or its systems.</li>
-        <li>No stress testing, no scraping, no automated crawling without permission.</li>
-        <li>Token grabbing, malicious injection, or browser-based exploits are strictly forbidden.</li>
-        <li>Violation of these rules may result in:
-          <ul>
-            <li>IP blacklisting</li>
-            <li>Browser fingerprint bans</li>
-            <li>Legal action if necessary</li>
-          </ul>
-        </li>
-      </ul>
-      <div class="highlight">
-        ⚠️ We enforce all violations seriously and reserve the right to take appropriate legal and technical action.
-      </div>
-    </section>
+    <main>
+        <section class="section" id="dmca">
+            <div class="section-header">
+                <div class="section-icon">📄</div>
+                <h2>DMCA Protection</h2>
+            </div>
+            <p>All content and services provided on globalstats.xyz and through our bots are protected under U.S. and international copyright law.</p>
+            <p>If you believe content infringes on your rights, please email us with:</p>
+            <ul>
+                <li>Direct link to the infringing content</li>
+                <li>Link to your original work</li>
+                <li>Your contact details and proof of ownership</li>
+            </ul>
+            <p><strong>Contact:</strong> <a href="mailto:contact@globalstats.xyz">contact@globalstats.xyz</a></p>
+        </section>
 
-    <section id="bot-tos">
-      <h2>🤖 Bot Terms of Service</h2>
-      <ul>
-        <li>Bots may not be used for:
-          <ul>
-            <li>Harassment, threats, or intimidation</li>
-            <li>Sending unsolicited DMs or spam</li>
-            <li>Logging or stealing tokens or personal data</li>
-            <li>Involvement in hate speech, raiding, or illegal content</li>
-          </ul>
-        </li>
-        <li>You may not reverse engineer or exploit bot vulnerabilities</li>
-        <li>Abuse will result in bans and reports to Discord and authorities</li>
-      </ul>
-      <div class="highlight">
-        🚫 Our bots are built for community safety and developer utility — abuse will not be tolerated.
-      </div>
-    </section>
+        <section class="section" id="website-tos">
+            <div class="section-header">
+                <div class="section-icon">📜</div>
+                <h2>Website Terms of Service</h2>
+            </div>
+            <ul>
+                <li>Do not spam, harass, or exploit this site or its systems</li>
+                <li>No stress testing, scraping, or automated crawling without permission</li>
+                <li>Token grabbing, malicious injection, or browser-based exploits are strictly forbidden</li>
+                <li>Violation of these rules may result in:
+                    <ul>
+                        <li>IP blacklisting</li>
+                        <li>Browser fingerprint bans</li>
+                        <li>Legal action if necessary</li>
+                    </ul>
+                </li>
+            </ul>
+            <div class="highlight">
+                ⚠️ We enforce all violations seriously and reserve the right to take appropriate legal and technical action.
+            </div>
+        </section>
 
-    <section id="bots">
-      <h2>📌 Our Bots</h2>
-      <p>All bots are managed and secured by globalstats.xyz:</p>
-      <ul class="bot-list">
-        <li><span class="tag">Global Bot</span> – Multipurpose utility,</li>
-        <li><span class="tag">Global Dev Bot</span> – Tickets Bot</li>
-        <li><span class="tag">Security Bot</span> – Useful Moderation Bot</li>
-      </ul>
-    </section>
+        <section class="section" id="bot-tos">
+            <div class="section-header">
+                <div class="section-icon">🤖</div>
+                <h2>Bot Terms of Service</h2>
+            </div>
+            <ul>
+                <li>Bots may not be used for:
+                    <ul>
+                        <li>Harassment, threats, or intimidation</li>
+                        <li>Sending unsolicited DMs or spam</li>
+                        <li>Logging or stealing tokens or personal data</li>
+                        <li>Involvement in hate speech, raiding, or illegal content</li>
+                    </ul>
+                </li>
+                <li>You may not reverse engineer or exploit bot vulnerabilities</li>
+                <li>Abuse will result in bans and reports to Discord and authorities</li>
+            </ul>
+            <div class="highlight">
+                🚫 Our bots are built for community safety and developer utility — abuse will not be tolerated.
+            </div>
+        </section>
 
-    <section id="privacy">
-      <h2>🔐 Privacy Policy</h2>
-      <ul>
-        <li>We do not sell or share your data.</li>
-        <li>We do not run ads or analytics.</li>
-        <li>Only basic logs are kept to detect abuse (e.g. IP address, request path).</li>
-        <li>We follow all applicable privacy and data laws.</li>
-      </ul>
-    </section>
-  </main>
+        <section class="section" id="privacy">
+            <div class="section-header">
+                <div class="section-icon">🔐</div>
+                <h2>Privacy Policy</h2>
+            </div>
+            <ul>
+                <li>We do not sell or share your data</li>
+                <li>We do not run ads or analytics</li>
+                <li>Only basic logs are kept to detect abuse (e.g. IP address, request path)</li>
+                <li>We follow all applicable privacy and data laws</li>
+            </ul>
+        </section>
 
-  <footer>
-    &copy; 2025 globalstats.xyz – All rights reserved.<br>
-    <a href="https://portfolioynwglobal.vercel.app" target="_blank">My Portfolio</a> |
-    <a href="https://discord.gg/yTGkNxc7eU" target="_blank">Join Discord</a>
-  </footer>
+        <section class="section" id="services">
+            <div class="section-header">
+                <div class="section-icon">🚀</div>
+                <h2>Our Services</h2>
+            </div>
+            <div class="service-grid">
+                <div class="service-card">
+                    <div class="service-title">GlobalStats.xyz</div>
+                    <p>Monitor server performance and connection reliability worldwide, checking latency, port access, DNS, and more from multiple locations.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-title">Game Updates Bot</div>
+                    <p>Check Epic Games and Fortnite status, get outfit cosmetics, player stats, and more with real-time updates.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-title">Global Bot & BattlEye Bot</div>
+                    <p>Utility and moderation tools with ban checking capabilities for enhanced server management and security.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="contact">
+            <div class="section-header">
+                <div class="section-icon">🌐</div>
+                <h2>Contact & Links</h2>
+            </div>
+            <div class="contact-links">
+                <div class="contact-card">
+                    <h4>Rawkitt Server</h4>
+                    <a href="https://discord.gg/K3Qw74uXjv" target="_blank">Join Discord</a>
+                </div>
+                <div class="contact-card">
+                    <h4>Fortnite Stats</h4>
+                    <a href="https://globalstats.xyz" target="_blank">globalstats.xyz</a>
+                </div>
+                <div class="contact-card">
+                    <h4>Developer</h4>
+                    <a href="#" target="_blank">@hbkvxncent</a>
+                </div>
+            </div>
+        </section>
+
+        <div class="legal-notice">
+            <p><strong>Age Requirement & Inclusion Policy</strong></p>
+            <p>You must be 13+ to use this service. Discrimination, harassment, or exclusion of any kind is not tolerated. We support inclusive, equal access to everyone, regardless of background or location.</p>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 globalstats.xyz – All rights reserved.</p>
+        <p>Built with ❤️ by <a href="#">@hbkvxncent</a></p>
+    </footer>
+
+    <script>
+        // Loading screen functionality
+        window.addEventListener('load', function() {
+            setTimeout(() => {
+                const loadingScreen = document.getElementById('loadingScreen');
+                loadingScreen.classList.add('hidden');
+            }, 2000);
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
 </body>
 </html>

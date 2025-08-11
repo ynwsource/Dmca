@@ -1,22 +1,27 @@
-If your site has been scanned by our security bot and you prefer not to have it scanned or probed further, please don’t hesitate to contact us at contact@globalstats.xyz to opt out.
+Notice Regarding Our Security Bot Scans
 
-We take these requests very seriously and will immediately add your domain to our blacklist. Once blacklisted, your site will no longer be subject to any future scans or probes from our security bot.
+If our security bot has scanned your site, it may be because someone has reported your domain to us for review. In such cases, we conduct additional security checks to investigate the issue further.
 
-Our goal is to maintain a respectful and transparent security environment for all webmasters and site owners. We understand that some may not wish to participate in automated scanning, and we respect that choice.
+If you have not been reported and you prefer that your site not be scanned or probed in the future, please contact us at contact@globalstats.xyz or send a direct message on Discord (hbkvxncent) to request removal. We take these requests seriously and will promptly add your domain to our “do-not-scan” blacklist. Once blacklisted, your site will no longer be subject to future scans or probes from our security bot.
 
-The security bot is designed to help improve the overall safety and integrity of online services by identifying potential vulnerabilities, unusual activity, and assisting site owners in becoming aware of possible security risks.
+However, if your site has been flagged due to a security complaint, abuse report, or evidence of malicious activity, you may not be eligible to opt out until our investigation is complete. This policy helps maintain the safety of users, networks, and the broader internet community.
 
-We are committed to protecting your privacy and ensuring that our scanning activities do not disrupt your site’s normal operations or performance in any way. No personal data beyond publicly accessible information is collected during scans.
+Our goal is to maintain a respectful and transparent security environment for all webmasters and site owners. We understand that some may not wish to participate in automated scanning, and we respect that choice whenever possible.
 
-Any data gathered is used solely for security purposes.
+The security bot is designed to help improve the safety and integrity of online services by:
 
-If you have any concerns about how our security bot interacts with your site, or if you need additional information about our scanning practices, please do not hesitate to reach out. Our team is available to provide clarifications and assist with any questions you might have.
+Identifying potential vulnerabilities or abuse patterns
 
-Transparency and collaboration are at the heart of our approach. We believe that working together with site owners helps create a safer internet for everyone.
+Detecting unusual or suspicious activity
 
-Thank you for your understanding, cooperation, and commitment to online security.
+Alerting administrators to security risks
 
----
-GlobalStats Security Team  
-contact@globalstats.xyz  
-https://globalstats.xyz
+Supporting abuse mitigation efforts across the web
+
+Privacy & Impact We do not collect personal data—only publicly accessible information. Our scans are lightweight and will not disrupt your site’s performance. All data gathered is used solely for security purposes and is never sold or shared.
+
+If you have any concerns about our scanning process, need further details, or would like to request a copy of our scan results, please reach out. Our team is available to provide clarifications and answer any questions.
+
+Transparency and collaboration are central to our mission. We believe that working together with site owners helps create a safer and more trustworthy internet for all.
+
+— GlobalStats Security Team contact@globalstats.xyz discord: hbkvxncent https://globalstats.xyz

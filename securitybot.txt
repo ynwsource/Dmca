@@ -1,0 +1,24 @@
+# securitybot.txt
+
+If your site has been scanned by our security bot and you prefer not to have it scanned or probed further, please don’t hesitate to contact us at contact@globalstats.xyz to opt out.
+
+We take these requests very seriously and will immediately add your domain to our blacklist. Once blacklisted, your site will no longer be subject to any future scans or probes from our security bot.
+
+Our goal is to maintain a respectful and transparent security environment for all webmasters and site owners. We understand that some may not wish to participate in automated scanning, and we respect that choice.
+
+The security bot is designed to help improve the overall safety and integrity of online services by identifying potential vulnerabilities, unusual activity, and assisting site owners in becoming aware of possible security risks.
+
+We are committed to protecting your privacy and ensuring that our scanning activities do not disrupt your site’s normal operations or performance in any way. No personal data beyond publicly accessible information is collected during scans.
+
+Any data gathered is used solely for security purposes and is handled in accordance with our Privacy Policy, which can be viewed at https://globalstats.xyz/privacy-policy.
+
+If you have any concerns about how our security bot interacts with your site, or if you need additional information about our scanning practices, please do not hesitate to reach out. Our team is available to provide clarifications and assist with any questions you might have.
+
+Transparency and collaboration are at the heart of our approach. We believe that working together with site owners helps create a safer internet for everyone.
+
+Thank you for your understanding, cooperation, and commitment to online security.
+
+---
+GlobalStats Security Team  
+contact@globalstats.xyz  
+https://globalstats.xyz

@@ -18,7 +18,7 @@ Alerting administrators to security risks
 
 Supporting abuse mitigation efforts across the web
 
-Privacy & Impact We do not collect personal data—only publicly accessible information. Our scans are lightweight and will not disrupt your site’s performance. All data gathered is used solely for security purposes and is never sold or shared.
+Privacy & Impact We do not collect personal data only publicly accessible information. Our scans are lightweight and will not disrupt your site’s performance. All data gathered is used solely for security purposes and is never sold or shared.
 
 If you have any concerns about our scanning process, need further details, or would like to request a copy of our scan results, please reach out. Our team is available to provide clarifications and answer any questions.
 

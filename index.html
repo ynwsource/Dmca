@@ -1,558 +1,280 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Legal, DMCA & Terms – globalstats.xyz</title>
-    <style>
-        :root {
-            --primary: #0f0f23;
-            --secondary: #1a1a2e;
-            --accent: #4361ee;
-            --accent-light: #7209b7;
-            --text: #e8eaed;
-            --text-muted: #9aa0a6;
-            --bg: #0d1117;
-            --danger: #f85149;
-            --success: #7c3aed;
-            --border: #30363d;
-            --card-bg: #161b22;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Legal & Terms – globalstats.xyz</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+    :root {
+      --neon-blue: #00ffff;
+      --neon-pink: #ff00ff;
+      --dark-blue: #0d1117;
+      --grid-line: rgba(0, 255, 255, 0.1);
+    }
 
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background: linear-gradient(135deg, var(--bg) 0%, var(--primary) 100%);
-            color: var(--text);
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: var(--dark-blue);
+      overflow-x: hidden;
+      background-image: linear-gradient(to right, var(--grid-line) 1px, transparent 1px),
+                        linear-gradient(to bottom, var(--grid-line) 1px, transparent 1px);
+      background-size: 40px 40px;
+      animation: panGrid 40s linear infinite;
+    }
 
-        /* Loading Screen */
-        .loading-screen {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(45deg, #0f0f23, #1a1a2e, #4361ee);
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            z-index: 9999;
-            transition: opacity 0.5s ease, visibility 0.5s ease;
-        }
+    @keyframes panGrid {
+      from { background-position: 0 0; }
+      to { background-position: -40px -40px; }
+    }
 
-        .loading-screen.hidden {
-            opacity: 0;
-            visibility: hidden;
-        }
+    /* Section Glow Border */
+    .section-glow-border {
+      position: relative;
+      background-color: #161b22;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 0 10px rgba(0, 255, 255, 0.2);
+      transition: transform 0.3s ease;
+    }
 
-        .loading-content {
-            text-align: center;
-            color: white;
-        }
+    .section-glow-border::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(45deg, var(--neon-blue), var(--neon-pink));
+      opacity: 0.2;
+      filter: blur(20px);
+      animation: pulse-glow 5s infinite;
+      z-index: -1;
+    }
 
-        .loading-title {
-            font-size: 3rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            background: linear-gradient(45deg, #4361ee, #7209b7);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
+    .section-glow-border:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 30px rgba(0, 255, 255, 0.4);
+    }
 
-        .loading-subtitle {
-            font-size: 1.2rem;
-            margin-bottom: 2rem;
-            opacity: 0.8;
-        }
+    @keyframes pulse-glow {
+      0%, 100% { transform: scale(1); opacity: 0.2; }
+      50% { transform: scale(1.05); opacity: 0.4; }
+    }
 
-        .loading-btn {
-            display: inline-block;
-            padding: 12px 30px;
-            background: linear-gradient(45deg, #4361ee, #7209b7);
-            color: white;
-            text-decoration: none;
-            border-radius: 50px;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(67, 97, 238, 0.3);
-        }
+    /* Video embed */
+    .video-container {
+      position: relative;
+      padding-bottom: 56.25%; /* 16:9 */
+      height: 0;
+      overflow: hidden;
+      border-radius: 8px;
+    }
+    .video-container iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
 
-        .loading-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(67, 97, 238, 0.4);
+    /* Text glow */
+    .text-glow {
+      text-shadow: 0 0 5px var(--neon-blue), 0 0 10px var(--neon-blue), 0 0 20px var(--neon-blue);
+      color: var(--neon-blue);
+      transition: text-shadow 0.3s ease;
+    }
+    .text-glow:hover {
+      text-shadow: 0 0 10px var(--neon-blue), 0 0 20px var(--neon-blue), 0 0 30px var(--neon-blue);
+    }
+  </style>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#0d1117',
+            secondary: '#161b22',
+            text: '#e8eaed',
+            'text-muted': '#9aa0a6',
+            'neon-blue': '#00ffff',
+            'neon-pink': '#ff00ff',
+            'card-bg': '#161b22',
+            danger: '#f85149',
+            success: '#34d399',
+          }
         }
-
-        .spinner {
-            width: 50px;
-            height: 50px;
-            border: 4px solid rgba(255, 255, 255, 0.1);
-            border-left: 4px solid #4361ee;
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
-            margin: 2rem auto;
-        }
-
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-
-        /* Header */
-        header {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
-            padding: 3rem 1rem;
-            text-align: center;
-            border-bottom: 1px solid var(--border);
-            position: relative;
-            overflow: hidden;
-        }
-
-        header::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="%23ffffff" stroke-width="0.5" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
-            opacity: 0.3;
-        }
-
-        .header-content {
-            position: relative;
-            z-index: 1;
-        }
-
-        header h1 {
-            font-size: clamp(2rem, 5vw, 3.5rem);
-            font-weight: 800;
-            background: linear-gradient(45deg, var(--accent), var(--accent-light));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            margin-bottom: 0.5rem;
-        }
-
-        header p {
-            font-size: 1.2rem;
-            color: var(--text-muted);
-            margin-bottom: 2rem;
-        }
-
-        nav {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 1rem;
-        }
-
-        nav a {
-            color: var(--text);
-            text-decoration: none;
-            padding: 0.5rem 1rem;
-            border-radius: 25px;
-            transition: all 0.3s ease;
-            font-weight: 500;
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(10px);
-        }
-
-        nav a:hover {
-            background: var(--accent);
-            color: white;
-            transform: translateY(-2px);
-        }
-
-        /* Main Content */
-        main {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 2rem 1rem;
-        }
-
-        .section {
-            background: var(--card-bg);
-            border-radius: 15px;
-            padding: 2rem;
-            margin-bottom: 2rem;
-            border: 1px solid var(--border);
-            position: relative;
-            overflow: hidden;
-            transition: all 0.3s ease;
-        }
-
-        .section:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-        }
-
-        .section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 4px;
-            background: linear-gradient(90deg, var(--accent), var(--accent-light));
-        }
-
-        .section-header {
-            display: flex;
-            align-items: center;
-            margin-bottom: 1.5rem;
-        }
-
-        .section-icon {
-            font-size: 2rem;
-            margin-right: 1rem;
-        }
-
-        .section h2 {
-            color: var(--accent);
-            font-size: 1.8rem;
-            font-weight: 700;
-        }
-
-        .section p, .section li {
-            color: var(--text);
-            margin-bottom: 1rem;
-            font-size: 1.1rem;
-        }
-
-        .section ul {
-            padding-left: 1.5rem;
-        }
-
-        .section li {
-            margin-bottom: 0.5rem;
-        }
-
-        .highlight {
-            background: linear-gradient(135deg, rgba(248, 81, 73, 0.1), rgba(248, 81, 73, 0.05));
-            border: 1px solid var(--danger);
-            border-radius: 10px;
-            padding: 1.5rem;
-            margin: 1.5rem 0;
-            color: #ffcccc;
-        }
-
-        .service-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 1.5rem;
-            margin-top: 1.5rem;
-        }
-
-        .service-card {
-            background: rgba(255, 255, 255, 0.02);
-            border: 1px solid var(--border);
-            border-radius: 10px;
-            padding: 1.5rem;
-            transition: all 0.3s ease;
-        }
-
-        .service-card:hover {
-            border-color: var(--accent);
-            transform: translateY(-3px);
-        }
-
-        .service-title {
-            color: var(--accent);
-            font-weight: 600;
-            font-size: 1.2rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .contact-links {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1rem;
-            margin-top: 1.5rem;
-        }
-
-        .contact-card {
-            background: rgba(255, 255, 255, 0.02);
-            border: 1px solid var(--border);
-            border-radius: 10px;
-            padding: 1.5rem;
-            text-align: center;
-            transition: all 0.3s ease;
-        }
-
-        .contact-card:hover {
-            border-color: var(--accent);
-            transform: translateY(-3px);
-        }
-
-        .contact-card a {
-            color: var(--accent);
-            text-decoration: none;
-            font-weight: 600;
-        }
-
-        .contact-card a:hover {
-            text-decoration: underline;
-        }
-
-        .legal-notice {
-            background: linear-gradient(135deg, rgba(124, 58, 237, 0.1), rgba(124, 58, 237, 0.05));
-            border: 1px solid var(--success);
-            border-radius: 10px;
-            padding: 1.5rem;
-            margin: 2rem 0;
-            text-align: center;
-        }
-
-        /* Footer */
-        footer {
-            background: var(--primary);
-            padding: 2rem 1rem;
-            text-align: center;
-            border-top: 1px solid var(--border);
-            color: var(--text-muted);
-        }
-
-        footer a {
-            color: var(--accent);
-            text-decoration: none;
-        }
-
-        footer a:hover {
-            text-decoration: underline;
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .loading-title {
-                font-size: 2rem;
-            }
-           
-            .section {
-                padding: 1.5rem;
-            }
-           
-            .section-header {
-                flex-direction: column;
-                text-align: center;
-            }
-           
-            .section-icon {
-                margin-right: 0;
-                margin-bottom: 0.5rem;
-            }
-           
-            nav {
-                flex-direction: column;
-                align-items: center;
-            }
-           
-            .service-grid,
-            .contact-links {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        /* Smooth scrolling */
-        html {
-            scroll-behavior: smooth;
-        }
-
-        /* Link styling */
-        a {
-            color: var(--accent);
-            text-decoration: none;
-            transition: all 0.3s ease;
-        }
-
-        a:hover {
-            color: var(--accent-light);
-        }
-    </style>
+      }
+    }
+  </script>
 </head>
-<body>
-    <!-- Loading Screen -->
-    <div class="loading-screen" id="loadingScreen">
-        <div class="loading-content">
-            <div class="loading-title">hbkvxncent</div>
-            <div class="loading-subtitle">Join Rawkitt Server</div>
-            <a href="https://discord.gg/K3Qw74uXjv" class="loading-btn" target="_blank">Join Discord</a>
-            <div class="spinner"></div>
-        </div>
+<body class="bg-primary text-text leading-relaxed min-h-screen">
+
+  <header class="bg-secondary/80 p-8 text-center border-b border-text/10 backdrop-blur-sm relative">
+    <div class="relative z-10">
+      <h1 class="text-5xl font-extrabold mb-2 text-text">Legal & Terms</h1>
+      <p class="text-lg text-text-muted mb-8">System Protocols</p>
     </div>
+  </header>
 
-    <header>
-        <div class="header-content">
-            <h1>Legal & Terms</h1>
-            <p>globalstats.xyz – Protecting your rights and ours</p>
-            <nav>
-                <a href="#dmca">📄 DMCA</a>
-                <a href="#website-tos">📜 Website ToS</a>
-                <a href="#bot-tos">🤖 Bot ToS</a>
-                <a href="#privacy">🔐 Privacy</a>
-                <a href="#services">🚀 Services</a>
-                <a href="#contact">🌐 Contact</a>
-            </nav>
+  <main class="max-w-6xl mx-auto p-4 md:p-8">
+
+    <!-- GTA Trailer Section -->
+    <section id="gta-video" class="section-glow-border rounded-xl p-6 md:p-8 mb-12">
+      <h2 class="text-3xl font-bold text-neon-blue mb-4">i love gta 5 💜🥹</h2>
+      <div class="video-container">
+        <iframe src="https://www.youtube.com/embed/mCCFpRSdk70" title="YouTube video player" frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      </div>
+    </section>
+    
+    <!-- DMCA Section -->
+    <section id="dmca" class="section-glow-border rounded-xl p-6 md:p-8 mb-12">
+      <div class="flex items-center mb-4">
+        <svg class="w-10 h-10 text-neon-blue mr-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+            d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+        </svg>
+        <h2 class="text-3xl font-bold text-neon-blue">DMCA Protection</h2>
+      </div>
+      <p class="mb-4 text-text-muted">All content and services provided on globalstats.xyz and through our bots are protected under U.S. and international copyright law.</p>
+      <p class="mb-4 text-text-muted">If you believe content infringes on your rights, please email us with:</p>
+      <ul class="list-disc list-inside space-y-2 mb-4 pl-4 text-text">
+        <li>Direct link to the infringing content</li>
+        <li>Link to your original work</li>
+        <li>Your contact details and proof of ownership</li>
+      </ul>
+      <p class="text-text-muted"><strong>Contact:</strong> <a href="mailto:contact@globalstats.xyz" class="text-glow">contact@globalstats.xyz</a></p>
+    </section>
+
+    <!-- Website ToS Section -->
+    <section id="website-tos" class="section-glow-border rounded-xl p-6 md:p-8 mb-12">
+      <div class="flex items-center mb-4">
+        <svg class="w-10 h-10 text-neon-blue mr-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+            d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M17 16h.01" />
+        </svg>
+        <h2 class="text-3xl font-bold text-neon-blue">Website Terms of Service</h2>
+      </div>
+      <ul class="list-disc list-inside space-y-2 mb-4 pl-4 text-text-muted">
+        <li>Do not spam, harass, or exploit this site or its systems</li>
+        <li>No stress testing, scraping, or automated crawling without permission</li>
+        <li>Token grabbing, malicious injection, or browser-based exploits are strictly forbidden</li>
+        <li>Violation of these rules may result in:
+          <ul class="list-circle list-inside mt-2 pl-4">
+            <li>IP blacklisting</li>
+            <li>Browser fingerprint bans</li>
+            <li>Legal action if necessary</li>
+          </ul>
+        </li>
+      </ul>
+      <div class="bg-danger/20 border border-danger/50 rounded-lg p-4 my-6 text-red-200">
+        <p>WARNING: We enforce all violations seriously and reserve the right to take appropriate legal and technical action.</p>
+      </div>
+    </section>
+
+    <!-- Bot ToS Section -->
+    <section id="bot-tos" class="section-glow-border rounded-xl p-6 md:p-8 mb-12">
+      <div class="flex items-center mb-4">
+        <svg class="w-10 h-10 text-neon-blue mr-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+        </svg>
+        <h2 class="text-3xl font-bold text-neon-blue">Bot Terms of Service</h2>
+      </div>
+      <ul class="list-disc list-inside space-y-2 mb-4 pl-4 text-text-muted">
+        <li>Bots may not be used for:
+          <ul class="list-circle list-inside mt-2 pl-4">
+            <li>Harassment, threats, or intimidation</li>
+            <li>Sending unsolicited DMs or spam</li>
+            <li>Logging or stealing tokens or personal data</li>
+            <li>Involvement in hate speech, raiding, or illegal content</li>
+          </ul>
+        </li>
+        <li>You may not reverse engineer or exploit bot vulnerabilities</li>
+        <li>Abuse will result in bans and reports to Discord and authorities</li>
+      </ul>
+      <div class="bg-danger/20 border border-danger/50 rounded-lg p-4 my-6 text-red-200">
+        <p>DO NOT ABUSE: Our bots are built for community safety and developer utility — abuse will not be tolerated.</p>
+      </div>
+    </section>
+
+    <!-- Security Bot Section -->
+    <section id="security-bot" class="section-glow-border rounded-xl p-6 md:p-8 mb-12">
+      <div class="flex items-center mb-4">
+        <svg class="w-10 h-10 text-neon-blue mr-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+            d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.002 12.002 0 002.944 12c.046 2.65 1.056 5.253 3.075 7.027A11.952 11.952 0 0012 21.055a11.952 11.952 0 006.98-2.028 12.002 12.002 0 003.075-7.027 11.955 11.955 0 01-2.028-6.98z" />
+        </svg>
+        <h2 class="text-3xl font-bold text-neon-blue">Security Bot Scans</h2>
+      </div>
+      <p class="mb-4 text-text-muted">Our security bot scans sites that have been reported to us for review to investigate potential vulnerabilities or malicious activity. If you wish to opt out, you can contact us at <a href="mailto:contact@globalstats.xyz" class="text-glow">contact@globalstats.xyz</a> or on Discord (hbkvxncent) to be added to our "do-not-scan" list. Please note, domains flagged for abuse may not be eligible to opt out until an investigation is complete.</p>
+      <p class="text-sm mt-4 text-text-muted">
+        <a href="https://tosglobalstats.netlify.app/securitybot.txt" class="text-glow">Read more about our security policy here</a>.
+      </p>
+    </section>
+
+    <!-- Privacy Section -->
+    <section id="privacy" class="section-glow-border rounded-xl p-6 md:p-8 mb-12">
+      <div class="flex items-center mb-4">
+        <svg class="w-10 h-10 text-neon-blue mr-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+            d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+        </svg>
+        <h2 class="text-3xl font-bold text-neon-blue">Privacy Policy</h2>
+      </div>
+      <ul class="list-disc list-inside space-y-2 mb-4 pl-4 text-text-muted">
+        <li>We do not sell or share your data</li>
+        <li>We do not run ads or analytics</li>
+        <li>Only basic logs are kept to detect abuse (e.g. IP address, request path)</li>
+        <li>We follow all applicable privacy and data laws</li>
+      </ul>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="section-glow-border rounded-xl p-6 md:p-8 mb-12">
+      <div class="flex items-center mb-4">
+        <svg class="w-10 h-10 text-neon-blue mr-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.5 10.5H21a1 1 0 011 1v2a1 1 0 01-1 1h-7.5" />
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16.071 7.071L21 12l-4.929 4.929" />
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.5 13.5H21" />
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.5 10.5H21" />
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12h4" />
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12a4 4 0 108 0 4 4 0 00-8 0z" />
+        </svg>
+        <h2 class="text-3xl font-bold text-neon-blue">Our Services</h2>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-6">
+        <div class="bg-secondary/50 border border-text/10 rounded-lg p-6 transition-all duration-300 hover:border-neon-blue">
+          <h4 class="text-xl font-semibold text-neon-blue mb-2">GlobalStats.xyz Bot</h4>
+          <p class="text-sm text-text-muted">Monitor server performance and connection reliability worldwide, checking latency, port access, DNS, and more from multiple locations.</p>
         </div>
-    </header>
-
-    <main>
-        <section class="section" id="dmca">
-            <div class="section-header">
-                <div class="section-icon">📄</div>
-                <h2>DMCA Protection</h2>
-            </div>
-            <p>All content and services provided on globalstats.xyz and through our bots are protected under U.S. and international copyright law.</p>
-            <p>If you believe content infringes on your rights, please email us with:</p>
-            <ul>
-                <li>Direct link to the infringing content</li>
-                <li>Link to your original work</li>
-                <li>Your contact details and proof of ownership</li>
-            </ul>
-            <p><strong>Contact:</strong> <a href="mailto:contact@globalstats.xyz">contact@globalstats.xyz</a></p>
-        </section>
-
-        <section class="section" id="website-tos">
-            <div class="section-header">
-                <div class="section-icon">📜</div>
-                <h2>Website Terms of Service</h2>
-            </div>
-            <ul>
-                <li>Do not spam, harass, or exploit this site or its systems</li>
-                <li>No stress testing, scraping, or automated crawling without permission</li>
-                <li>Token grabbing, malicious injection, or browser-based exploits are strictly forbidden</li>
-                <li>Violation of these rules may result in:
-                    <ul>
-                        <li>IP blacklisting</li>
-                        <li>Browser fingerprint bans</li>
-                        <li>Legal action if necessary</li>
-                    </ul>
-                </li>
-            </ul>
-            <div class="highlight">
-                ⚠️ We enforce all violations seriously and reserve the right to take appropriate legal and technical action.
-            </div>
-        </section>
-
-        <section class="section" id="bot-tos">
-            <div class="section-header">
-                <div class="section-icon">🤖</div>
-                <h2>Bot Terms of Service</h2>
-            </div>
-            <ul>
-                <li>Bots may not be used for:
-                    <ul>
-                        <li>Harassment, threats, or intimidation</li>
-                        <li>Sending unsolicited DMs or spam</li>
-                        <li>Logging or stealing tokens or personal data</li>
-                        <li>Involvement in hate speech, raiding, or illegal content</li>
-                    </ul>
-                </li>
-                <li>You may not reverse engineer or exploit bot vulnerabilities</li>
-                <li>Abuse will result in bans and reports to Discord and authorities</li>
-            </ul>
-            <div class="highlight">
-                🚫 Our bots are built for community safety and developer utility — abuse will not be tolerated.
-            </div>
-        </section>
-
-        <section class="section" id="privacy">
-            <div class="section-header">
-                <div class="section-icon">🔐</div>
-                <h2>Privacy Policy</h2>
-            </div>
-            <ul>
-                <li>We do not sell or share your data</li>
-                <li>We do not run ads or analytics</li>
-                <li>Only basic logs are kept to detect abuse (e.g. IP address, request path)</li>
-                <li>We follow all applicable privacy and data laws</li>
-            </ul>
-        </section>
-
-        <section class="section" id="services">
-            <div class="section-header">
-                <div class="section-icon">🚀</div>
-                <h2>Our Services</h2>
-            </div>
-            <div class="service-grid">
-                <div class="service-card">
-                    <div class="service-title">GlobalStats.xyz Bot</div>
-                    <p>Monitor server performance and connection reliability worldwide, checking latency, port access, DNS, and more from multiple locations.</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-title">Game Updates Bot</div>
-                    <p>Check Epic Games and Fortnite status, get outfit cosmetics, player stats, and more with real-time updates.</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-title">Global Bot & BattlEye Bot</div>
-                    <p>Utility and moderation tools with ban checking capabilities for enhanced server management and security.</p>
-                </div>
-            </div>
-        </section>
-
-        <section class="section" id="contact">
-            <div class="section-header">
-                <div class="section-icon">🌐</div>
-                <h2>Contact & Links</h2>
-            </div>
-            <div class="contact-links">
-                <div class="contact-card">
-                    <h4>Rawkitt Server</h4>
-                    <a href="https://discord.gg/K3Qw74uXjv" target="_blank">Join Discord</a>
-                </div>
-                <div class="contact-card">
-                    <h4>Fortnite Stats</h4>
-                    <a href="https://globalstats.xyz" target="_blank">globalstats.xyz</a>
-                </div>
-                <div class="contact-card">
-                    <h4>Developer</h4>
-                    <a href="#" target="_blank">@hbkvxncent</a>
-                </div>
-            </div>
-        </section>
-
-        <div class="legal-notice">
-            <p><strong>Age Requirement & Inclusion Policy</strong></p>
-            <p>You must be 13+ to use this service. Discrimination, harassment, or exclusion of any kind is not tolerated. We support inclusive, equal access to everyone, regardless of background or location.</p>
+        <div class="bg-secondary/50 border border-text/10 rounded-lg p-6 transition-all duration-300 hover:border-neon-blue">
+          <h4 class="text-xl font-semibold text-neon-blue mb-2">Game Updates Bot</h4>
+          <p class="text-sm text-text-muted">Check Epic Games and Fortnite status, get outfit cosmetics, player stats, and more with real-time updates.</p>
         </div>
-    </main>
-
-    <footer>
-        <p>&copy; 2025 globalstats.xyz – All rights reserved.</p>
-        <p>Built with 💜 by <a href="#">@hbkvxncent</a></p>
-    </footer>
-
-    <script>
-        // Loading screen functionality
-        window.addEventListener('load', function() {
-            setTimeout(() => {
-                const loadingScreen = document.getElementById('loadingScreen');
-                loadingScreen.classList.add('hidden');
-            }, 2000);
-        });
-
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
-    </script>
-</body>
-</html>
+        <div class="bg-secondary/50 border border-text/10 rounded-lg p-6 transition-all duration-300 hover:border-neon-blue">
+          <h4 class="text-xl font-semibold text-neon-blue mb-2">Global Bot & BattlEye Bot</h4>
+          <p class="text-sm text-text-muted">Utility and moderation tools with ban checking capabilities for enhanced server management and security.</p>        </div>
+      </div>
+    </section> <!-- Rawkiit GTA 5 Community Section -->
+<section id="rawkiit-community" class="section-glow-border rounded-xl p-6 md:p-8 mb-12">
+  <div class="flex items-center mb-4">
+    <!-- Discord Logo -->
+    <svg class="w-10 h-10 text-neon-blue mr-4" viewBox="0 0 245 240" xmlns="http://www.w3.org/2000/svg">
+      <path fill="currentColor" d="M104.4 104.5c-5.7 0-10.2 5-10.2 11.1s4.6 11.1 10.2 11.1c5.7 0 10.2-5 10.2-11.1s-4.6-11.1-10.2-11.1zm36.2 0c-5.7 0-10.2 5-10.2 11.1s4.6 11.1 10.2 11.1c5.7 0 10.2-5 10.2-11.1s-4.5-11.1-10.2-11.1z"/>
+      <path fill="currentColor" d="M189.5 20h-134C44.2 20 36 28.2 36 38.5v163c0 10.3 8.2 18.5 18.5 18.5h114.4l-5.4-18.8 13 12.1 12.3 11.3 21.8 19V38.5c0-10.3-8.2-18.5-18.5-18.5zm-36.3 141s-3.4-4-6.2-7.5c12.3-3.5 17-11.3 17-11.3-3.8 2.5-7.5 4.3-10.8 5.5-4.7 2-9.2 3.3-13.6 4.1-9 1.7-17.2 1.2-24.2-0.1-5.3-1-9.9-2.5-13.7-4.1-2.1-0.8-4.5-1.9-6.8-3.3-0.3-0.2-0.6-0.3-0.9-0.5-0.2-0.1-0.3-0.2-0.5-0.3-2.1-1.2-3.2-2-3.2-2s4.5 7.6 16.5 11.2c-2.8 3.5-6.3 7.7-6.3 7.7-20.8-0.7-28.7-14.3-28.7-14.3 0-30.2 13.5-54.7 13.5-54.7 13.5-10 26.3-9.7 26.3-9.7l0.9 1c-16.9 4.9-24.7 12.3-24.7 12.3s2.1-1.2 5.6-2.8c10.1-4.4 18.1-5.6 21.4-5.9 0.6-0.1 1.1-0.2 1.7-0.2 6.1-0.8 13-1 20.2-0.2 9.5 1.1 19.7 3.9 30.1 9.6 0 0-7.4-7-23.4-11.9l1.3-1.5s12.8-0.3 26.3 9.7c0 0 13.5 24.5 13.5 54.7 0 0-7.9 13.6-28.7 14.3z"/>
+    </svg>
+    <h2 class="text-3xl font-bold text-neon-blue">Join the Rawkiit GTA 5 Community</h2>
+  </div>
+  <p class="mb-4 text-text-muted">
+    Connect with other GTA 5 fans, share tips, mods, and community events in the official Rawkiit server.
+  </p>
+  <a href="https://discord.gg/K3Qw74uXjv" target="_blank" 
+     class="inline-block bg-[#5865F2] text-white font-semibold px-6 py-3 rounded-lg shadow-md hover:bg-[#4752C4] transition-all duration-300">
+    Join the Discord
+  </a>
+</section>

@@ -31,7 +31,6 @@
       to { background-position: -40px -40px; }
     }
 
-    /* Section Glow Border */
     .section-glow-border {
       position: relative;
       background-color: #161b22;
@@ -65,10 +64,9 @@
       50% { transform: scale(1.05); opacity: 0.4; }
     }
 
-    /* Video embed */
     .video-container {
       position: relative;
-      padding-bottom: 56.25%; /* 16:9 */
+      padding-bottom: 56.25%;
       height: 0;
       overflow: hidden;
       border-radius: 8px;
@@ -81,7 +79,6 @@
       height: 100%;
     }
 
-    /* Text glow */
     .text-glow {
       text-shadow: 0 0 5px var(--neon-blue), 0 0 10px var(--neon-blue), 0 0 20px var(--neon-blue);
       color: var(--neon-blue);
@@ -121,18 +118,15 @@
   </header>
 
   <main class="max-w-6xl mx-auto p-4 md:p-8">
-
-    <!-- GTA Trailer Section -->
     <section id="gta-video" class="section-glow-border rounded-xl p-6 md:p-8 mb-12">
       <h2 class="text-3xl font-bold text-neon-blue mb-4">i love gta 5 💜🥹</h2>
       <div class="video-container">
-        <iframe src="https://www.youtube.com/embed/mCCFpRSdk70" title="YouTube video player" frameborder="0"
+        <iframe src="https://www.youtube.com/embed/mCCFpRSdk70" title="GTA 5 Trailer" frameborder="0"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
           referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
       </div>
     </section>
-    
-    <!-- DMCA Section -->
+
     <section id="dmca" class="section-glow-border rounded-xl p-6 md:p-8 mb-12">
       <div class="flex items-center mb-4">
         <svg class="w-10 h-10 text-neon-blue mr-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -151,7 +145,6 @@
       <p class="text-text-muted"><strong>Contact:</strong> <a href="mailto:contact@globalstats.xyz" class="text-glow">contact@globalstats.xyz</a></p>
     </section>
 
-    <!-- Website ToS Section -->
     <section id="website-tos" class="section-glow-border rounded-xl p-6 md:p-8 mb-12">
       <div class="flex items-center mb-4">
         <svg class="w-10 h-10 text-neon-blue mr-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -177,7 +170,6 @@
       </div>
     </section>
 
-    <!-- Bot ToS Section -->
     <section id="bot-tos" class="section-glow-border rounded-xl p-6 md:p-8 mb-12">
       <div class="flex items-center mb-4">
         <svg class="w-10 h-10 text-neon-blue mr-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -202,7 +194,6 @@
       </div>
     </section>
 
-    <!-- Security Bot Section -->
     <section id="security-bot" class="section-glow-border rounded-xl p-6 md:p-8 mb-12">
       <div class="flex items-center mb-4">
         <svg class="w-10 h-10 text-neon-blue mr-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -211,13 +202,12 @@
         </svg>
         <h2 class="text-3xl font-bold text-neon-blue">Security Bot Scans</h2>
       </div>
-      <p class="mb-4 text-text-muted">Our security bot scans sites that have been reported to us for review to investigate potential vulnerabilities or malicious activity. If you wish to opt out, you can contact us at <a href="mailto:contact@globalstats.xyz" class="text-glow">contact@globalstats.xyz</a> or on Discord (hbkvxncent) to be added to our "do-not-scan" list. Please note, domains flagged for abuse may not be eligible to opt out until an investigation is complete.</p>
+      <p class="mb-4 text-text-muted">Our security bot scans sites that have been reported to us for review to investigate potential vulnerabilities or malicious activity. If you wish to opt out, contact us at <a href="mailto:contact@globalstats.xyz" class="text-glow">contact@globalstats.xyz</a> or Discord (hbkvxncent). Domains flagged for abuse may not be eligible to opt out until investigations are complete.</p>
       <p class="text-sm mt-4 text-text-muted">
         <a href="https://tosglobalstats.netlify.app/securitybot.txt" class="text-glow">Read more about our security policy here</a>.
       </p>
     </section>
 
-    <!-- Privacy Section -->
     <section id="privacy" class="section-glow-border rounded-xl p-6 md:p-8 mb-12">
       <div class="flex items-center mb-4">
         <svg class="w-10 h-10 text-neon-blue mr-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -234,7 +224,6 @@
       </ul>
     </section>
 
-    <!-- Services Section -->
     <section id="services" class="section-glow-border rounded-xl p-6 md:p-8 mb-12">
       <div class="flex items-center mb-4">
         <svg class="w-10 h-10 text-neon-blue mr-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -258,23 +247,34 @@
         </div>
         <div class="bg-secondary/50 border border-text/10 rounded-lg p-6 transition-all duration-300 hover:border-neon-blue">
           <h4 class="text-xl font-semibold text-neon-blue mb-2">Global Bot & BattlEye Bot</h4>
-          <p class="text-sm text-text-muted">Utility and moderation tools with ban checking capabilities for enhanced server management and security.</p>        </div>
+          <p class="text-sm text-text-muted">Utility and moderation tools with ban checking capabilities for enhanced server management and security.</p>
+        </div>
       </div>
-    </section> <!-- Rawkiit GTA 5 Community Section -->
-<section id="rawkiit-community" class="section-glow-border rounded-xl p-6 md:p-8 mb-12">
-  <div class="flex items-center mb-4">
-    <!-- Discord Logo -->
-    <svg class="w-10 h-10 text-neon-blue mr-4" viewBox="0 0 245 240" xmlns="http://www.w3.org/2000/svg">
-      <path fill="currentColor" d="M104.4 104.5c-5.7 0-10.2 5-10.2 11.1s4.6 11.1 10.2 11.1c5.7 0 10.2-5 10.2-11.1s-4.6-11.1-10.2-11.1zm36.2 0c-5.7 0-10.2 5-10.2 11.1s4.6 11.1 10.2 11.1c5.7 0 10.2-5 10.2-11.1s-4.5-11.1-10.2-11.1z"/>
-      <path fill="currentColor" d="M189.5 20h-134C44.2 20 36 28.2 36 38.5v163c0 10.3 8.2 18.5 18.5 18.5h114.4l-5.4-18.8 13 12.1 12.3 11.3 21.8 19V38.5c0-10.3-8.2-18.5-18.5-18.5zm-36.3 141s-3.4-4-6.2-7.5c12.3-3.5 17-11.3 17-11.3-3.8 2.5-7.5 4.3-10.8 5.5-4.7 2-9.2 3.3-13.6 4.1-9 1.7-17.2 1.2-24.2-0.1-5.3-1-9.9-2.5-13.7-4.1-2.1-0.8-4.5-1.9-6.8-3.3-0.3-0.2-0.6-0.3-0.9-0.5-0.2-0.1-0.3-0.2-0.5-0.3-2.1-1.2-3.2-2-3.2-2s4.5 7.6 16.5 11.2c-2.8 3.5-6.3 7.7-6.3 7.7-20.8-0.7-28.7-14.3-28.7-14.3 0-30.2 13.5-54.7 13.5-54.7 13.5-10 26.3-9.7 26.3-9.7l0.9 1c-16.9 4.9-24.7 12.3-24.7 12.3s2.1-1.2 5.6-2.8c10.1-4.4 18.1-5.6 21.4-5.9 0.6-0.1 1.1-0.2 1.7-0.2 6.1-0.8 13-1 20.2-0.2 9.5 1.1 19.7 3.9 30.1 9.6 0 0-7.4-7-23.4-11.9l1.3-1.5s12.8-0.3 26.3 9.7c0 0 13.5 24.5 13.5 54.7 0 0-7.9 13.6-28.7 14.3z"/>
-    </svg>
-    <h2 class="text-3xl font-bold text-neon-blue">Join the Rawkiit GTA 5 Community</h2>
-  </div>
-  <p class="mb-4 text-text-muted">
-    Connect with other GTA 5 fans, share tips, mods, and community events in the official Rawkiit server.
-  </p>
-  <a href="https://discord.gg/K3Qw74uXjv" target="_blank" 
-     class="inline-block bg-[#5865F2] text-white font-semibold px-6 py-3 rounded-lg shadow-md hover:bg-[#4752C4] transition-all duration-300">
-    Join the Discord
-  </a>
-</section>
+    </section>
+
+    <section id="rawkiit-community" class="section-glow-border rounded-xl p-6 md:p-8 mb-12">
+      <div class="flex items-center mb-4">
+        <svg class="w-10 h-10 text-neon-blue mr-4" viewBox="0 0 245 240" xmlns="http://www.w3.org/2000/svg">
+          <path fill="currentColor" d="M104.4 104.5c-5.7 0-10.2 5-10.2 11.1s4.6 11.1 10.2 11.1c5.7 0 10.2-5 10.2-11.1s-4.6-11.1-10.2-11.1zm36.2 0c-5.7 0-10.2 5-10.2 11.1s4.6 11.1 10.2 11.1c5.7 0 10.2-5 10.2-11.1s-4.5-11.1-10.2-11.1z"/>
+          <path fill="currentColor" d="M189.5 20h-134C44.2 20 36 28.2 36 38.5v163c0 10.3 8.2 18.5 18.5 18.5h114.4l-5.4-18.8 13 12.1 12.3 11.3 21.8 19V38.5c0-10.3-8.2-18.5-18.5-18.5zm-36.3 141s-3.4-4-6.2-7.5c12.3-3.5 17-11.3 17-11.3-3.8 2.5-7.5 4.3-10.8 5.5-4.7 2-9.2 3.3-13.6 4.1-9 1.7-17.2 1.2-24.2-0.1-5.3-1-9.9-2.5-13.7-4.1-2.1-0.8-4.5-1.9-6.8-3.3-0.3-0.2-0.6-0.3-0.9-0.5-0.2-0.1-0.3-0.2-0.5-0.3-2.1-1.2-3.2-2-3.2-2s4.5 7.6 16.5 11.2c-2.8 3.5-6.3 7.7-6.3 7.7-20.8-0.7-28.7-14.3-28.7-14.3 0-30.2 13.5-54.7 13.5-54.7 13.5-10 26.3-9.7 26.3-9.7l0.9 1c-16.9 4.9-24.7 12.3-24.7 12.3s2.1-1.2 5.6-2.8c10.1-4.4 18.1-5.6 21.4-5.9 0.6-0.1 1.1-0.2 1.7-0.2 6.1-0.8 13-1 20.2-0.2 9.5 1.1 19.7 3.9 30.1 9.6 0 0-7.4-7-23.4-11.9l1.3-1.5s12.8-0.3 26.3 9.7c0 0 13.5 24.5 13.5 54.7 0 0-7.9 13.6-28.7 14.3z"/>
+        </svg>
+        <h2 class="text-3xl font-bold text-neon-blue">Join the Rawkiit GTA 5 Community</h2>
+      </div>
+      <p class="mb-4 text-text-muted">Connect with other GTA 5 fans, share tips, mods, and community events on our official Rawkiit server.</p>
+      <a href="https://discord.gg/K3Qw74uXjv" target="_blank" 
+        class="inline-block bg-[#5865F2] text-white font-semibold px-6 py-3 rounded-lg shadow-md hover:bg-[#4752C4] hover:shadow-[0_0_15px_#5865F2] transition-all duration-300">
+        Join the Discord
+      </a>
+    </section>
+
+  </main>
+
+  <footer class="bg-secondary/80 text-center py-6 border-t border-text/10 backdrop-blur-sm relative">
+    <p class="text-text-muted text-sm">
+      Made by <span class="text-glow font-semibold">hbkvxncent</span> <br>
+      &copy; <script>document.write(new Date().getFullYear());</script> globalstats.xyz. All rights reserved.
+    </p>
+  </footer>
+
+</body>
+</html>
